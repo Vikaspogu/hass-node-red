@@ -2,7 +2,21 @@
     {
         "id": "7f2efefbbceb30df",
         "type": "tab",
-        "label": "Flow 1",
+        "label": "Office Lights Motion",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "7f54fc151e2b8fe4",
+        "type": "tab",
+        "label": "Living Room Lights",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "a0b0c69958ec912d",
+        "type": "tab",
+        "label": "Garage Door Notifications",
         "disabled": false,
         "info": ""
     },
@@ -18,14 +32,694 @@
         "cacheJson": true
     },
     {
-        "id": "b2df05c02f31618e",
+        "id": "4a26f6f4628afb56",
+        "type": "weekday",
+        "z": "7f2efefbbceb30df",
+        "name": "Is weekday?",
+        "sun": false,
+        "mon": true,
+        "tue": true,
+        "wed": true,
+        "thu": true,
+        "fri": true,
+        "sat": false,
+        "x": 490,
+        "y": 520,
+        "wires": [
+            [
+                "1a10ebb85d630d7f"
+            ],
+            [
+                "51a2a6ce9bd9dd6b"
+            ]
+        ]
+    },
+    {
+        "id": "f7cbb6cf7003d9a6",
+        "type": "server-state-changed",
+        "z": "7f54fc151e2b8fe4",
+        "name": "Living Room Motion",
+        "server": "d6ccf41005253901",
+        "version": 3,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
+        "entityidfilter": "binary_sensor.livingroommotionsensor_occupancy",
+        "entityidfiltertype": "exact",
+        "outputinitially": false,
+        "state_type": "str",
+        "haltifstate": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "outputs": 2,
+        "output_only_on_state_change": true,
+        "for": 0,
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": false,
+        "ignoreCurrentStateUnavailable": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "eventData"
+            },
+            {
+                "property": "topic",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "triggerId"
+            }
+        ],
+        "x": 110,
+        "y": 400,
+        "wires": [
+            [
+                "252a91796ae2681b"
+            ],
+            [
+                "0e4be3ccb7e3d349"
+            ]
+        ]
+    },
+    {
+        "id": "53192b1195f8f29a",
+        "type": "server-state-changed",
+        "z": "a0b0c69958ec912d",
+        "name": "Garage Door",
+        "server": "d6ccf41005253901",
+        "version": 3,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
+        "entityidfilter": "cover.garage_door",
+        "entityidfiltertype": "exact",
+        "outputinitially": false,
+        "state_type": "str",
+        "haltifstate": "open",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "outputs": 2,
+        "output_only_on_state_change": true,
+        "for": "",
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": false,
+        "ignoreCurrentStateUnavailable": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "eventData"
+            },
+            {
+                "property": "topic",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "triggerId"
+            }
+        ],
+        "x": 160,
+        "y": 200,
+        "wires": [
+            [
+                "9b47c61b6bace062"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "c4de164da122a430",
+        "type": "api-call-service",
+        "z": "a0b0c69958ec912d",
+        "name": "Notify if open",
+        "server": "d6ccf41005253901",
+        "version": 3,
+        "debugenabled": false,
+        "service_domain": "notify",
+        "service": "mobile_app_sm_g781v",
+        "entityId": "",
+        "data": "",
+        "dataType": "jsonata",
+        "mergecontext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 650,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9b47c61b6bace062",
+        "type": "trigger",
+        "z": "a0b0c69958ec912d",
+        "name": "Trigger every 15mins when open",
+        "op1": "1",
+        "op2": "0",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "15",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "min",
+        "reset": "close",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 410,
+        "y": 200,
+        "wires": [
+            [
+                "c4de164da122a430"
+            ]
+        ]
+    },
+    {
+        "id": "97b1659216df3b70",
         "type": "api-current-state",
         "z": "7f2efefbbceb30df",
-        "name": "Office Room Motion Senor",
+        "name": "Is lights on?",
         "server": "d6ccf41005253901",
         "version": 2,
-        "outputs": 1,
-        "halt_if": "",
+        "outputs": 2,
+        "halt_if": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "entity_id": "light.office_ceiling_lights",
+        "state_type": "str",
+        "blockInputOverrides": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entity"
+            }
+        ],
+        "override_topic": false,
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "x": 310,
+        "y": 420,
+        "wires": [
+            [],
+            [
+                "1c730c4f36861798"
+            ]
+        ]
+    },
+    {
+        "id": "7714f0f2226a61ef",
+        "type": "api-current-state",
+        "z": "7f2efefbbceb30df",
+        "name": "Is lights on?",
+        "server": "d6ccf41005253901",
+        "version": 2,
+        "outputs": 2,
+        "halt_if": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "entity_id": "light.office_ceiling_lights",
+        "state_type": "str",
+        "blockInputOverrides": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entity"
+            }
+        ],
+        "override_topic": false,
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "x": 310,
+        "y": 520,
+        "wires": [
+            [
+                "4a26f6f4628afb56"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "51a2a6ce9bd9dd6b",
+        "type": "api-call-service",
+        "z": "7f2efefbbceb30df",
+        "name": "Office Lights Off",
+        "server": "d6ccf41005253901",
+        "version": 3,
+        "debugenabled": false,
+        "service_domain": "light",
+        "service": "turn_off",
+        "entityId": "light.office_ceiling_lights",
+        "data": "",
+        "dataType": "jsonata",
+        "mergecontext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 920,
+        "y": 560,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "04c2addc63b8b520",
+        "type": "api-call-service",
+        "z": "7f2efefbbceb30df",
+        "name": "Office Lights On",
+        "server": "d6ccf41005253901",
+        "version": 3,
+        "debugenabled": false,
+        "service_domain": "light",
+        "service": "turn_on",
+        "entityId": "light.office_ceiling_lights",
+        "data": "",
+        "dataType": "jsonata",
+        "mergecontext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 900,
+        "y": 400,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1192f3f547486b32",
+        "type": "time-range-switch",
+        "z": "7f2efefbbceb30df",
+        "name": "Between 5PM-8AM",
+        "lat": "44.085252110053204",
+        "lon": "-92.49032161185444",
+        "startTime": "17:00",
+        "endTime": "08:00",
+        "startOffset": 0,
+        "endOffset": 0,
+        "x": 690,
+        "y": 320,
+        "wires": [
+            [
+                "04c2addc63b8b520"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "1c730c4f36861798",
+        "type": "weekday",
+        "z": "7f2efefbbceb30df",
+        "name": "Is weekday?",
+        "sun": false,
+        "mon": true,
+        "tue": true,
+        "wed": true,
+        "thu": true,
+        "fri": true,
+        "sat": false,
+        "x": 490,
+        "y": 400,
+        "wires": [
+            [
+                "1192f3f547486b32"
+            ],
+            [
+                "04c2addc63b8b520"
+            ]
+        ]
+    },
+    {
+        "id": "1a10ebb85d630d7f",
+        "type": "time-range-switch",
+        "z": "7f2efefbbceb30df",
+        "name": "Between 5PM-8AM",
+        "lat": "44.085252110053204",
+        "lon": "-92.49032161185444",
+        "startTime": "17:00",
+        "endTime": "08:00",
+        "startOffset": 0,
+        "endOffset": 0,
+        "x": 690,
+        "y": 460,
+        "wires": [
+            [
+                "3e11ce62b36331cb"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "49f1a17de498d381",
+        "type": "server-state-changed",
+        "z": "7f2efefbbceb30df",
+        "name": "Office Occupancy",
+        "server": "d6ccf41005253901",
+        "version": 3,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
+        "entityidfilter": "binary_sensor.officemotionsensor_occupancy",
+        "entityidfiltertype": "exact",
+        "outputinitially": false,
+        "state_type": "str",
+        "haltifstate": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "outputs": 2,
+        "output_only_on_state_change": true,
+        "for": 0,
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": false,
+        "ignoreCurrentStateUnavailable": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "eventData"
+            },
+            {
+                "property": "topic",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "triggerId"
+            }
+        ],
+        "x": 110,
+        "y": 460,
+        "wires": [
+            [
+                "97b1659216df3b70"
+            ],
+            [
+                "7714f0f2226a61ef"
+            ]
+        ]
+    },
+    {
+        "id": "3e11ce62b36331cb",
+        "type": "delay",
+        "z": "7f2efefbbceb30df",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "60",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "x": 900,
+        "y": 480,
+        "wires": [
+            [
+                "a69b697c51e79cfd"
+            ]
+        ]
+    },
+    {
+        "id": "252a91796ae2681b",
+        "type": "api-current-state",
+        "z": "7f54fc151e2b8fe4",
+        "name": "Is lights on?",
+        "server": "d6ccf41005253901",
+        "version": 2,
+        "outputs": 2,
+        "halt_if": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "entity_id": "light.living_room_dining_lights",
+        "state_type": "str",
+        "blockInputOverrides": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entity"
+            }
+        ],
+        "override_topic": false,
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "x": 310,
+        "y": 340,
+        "wires": [
+            [],
+            [
+                "cc49677e8e29d8a9"
+            ]
+        ]
+    },
+    {
+        "id": "0e4be3ccb7e3d349",
+        "type": "api-current-state",
+        "z": "7f54fc151e2b8fe4",
+        "name": "Is lights on?",
+        "server": "d6ccf41005253901",
+        "version": 2,
+        "outputs": 2,
+        "halt_if": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "entity_id": "light.living_room_dining_lights",
+        "state_type": "str",
+        "blockInputOverrides": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entity"
+            }
+        ],
+        "override_topic": false,
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "x": 310,
+        "y": 440,
+        "wires": [
+            [
+                "935c15097c78ee73"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "cc49677e8e29d8a9",
+        "type": "api-call-service",
+        "z": "7f54fc151e2b8fe4",
+        "name": "Lights On",
+        "server": "d6ccf41005253901",
+        "version": 3,
+        "debugenabled": false,
+        "service_domain": "light",
+        "service": "turn_on",
+        "entityId": "light.living_room_dining_lights",
+        "data": "",
+        "dataType": "jsonata",
+        "mergecontext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 500,
+        "y": 340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "935c15097c78ee73",
+        "type": "api-current-state",
+        "z": "7f54fc151e2b8fe4",
+        "name": "Is TV On",
+        "server": "d6ccf41005253901",
+        "version": 2,
+        "outputs": 2,
+        "halt_if": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "entity_id": "media_player.sony_bravia_tv",
+        "state_type": "str",
+        "blockInputOverrides": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entity"
+            }
+        ],
+        "override_topic": false,
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "x": 520,
+        "y": 440,
+        "wires": [
+            [],
+            [
+                "7a55c1597ace4610"
+            ]
+        ]
+    },
+    {
+        "id": "7a55c1597ace4610",
+        "type": "delay",
+        "z": "7f54fc151e2b8fe4",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "2",
+        "timeoutUnits": "minutes",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "x": 700,
+        "y": 440,
+        "wires": [
+            [
+                "4d39cebd2b5c260a"
+            ]
+        ]
+    },
+    {
+        "id": "3d031c292d2ed8c4",
+        "type": "api-call-service",
+        "z": "7f54fc151e2b8fe4",
+        "name": "Lights Off",
+        "server": "d6ccf41005253901",
+        "version": 3,
+        "debugenabled": false,
+        "service_domain": "light",
+        "service": "turn_off",
+        "entityId": "light.living_room_dining_lights",
+        "data": "",
+        "dataType": "jsonata",
+        "mergecontext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 1060,
+        "y": 440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a69b697c51e79cfd",
+        "type": "api-current-state",
+        "z": "7f2efefbbceb30df",
+        "name": "Is occupied?",
+        "server": "d6ccf41005253901",
+        "version": 2,
+        "outputs": 2,
+        "halt_if": "on",
         "halt_if_type": "str",
         "halt_if_compare": "is",
         "entity_id": "binary_sensor.officemotionsensor_occupancy",
@@ -50,116 +744,55 @@
         "override_payload": "msg",
         "entity_location": "data",
         "override_data": "msg",
-        "x": 230,
-        "y": 240,
+        "x": 1070,
+        "y": 480,
         "wires": [
+            [],
             [
-                "cd01e98dbea65d6b"
+                "51a2a6ce9bd9dd6b"
             ]
         ]
     },
     {
-        "id": "cd01e98dbea65d6b",
-        "type": "switch",
-        "z": "7f2efefbbceb30df",
-        "name": "On - Off",
-        "property": "payload",
-        "propertyType": "msg",
-        "rules": [
+        "id": "4d39cebd2b5c260a",
+        "type": "api-current-state",
+        "z": "7f54fc151e2b8fe4",
+        "name": "Is occupied?",
+        "server": "d6ccf41005253901",
+        "version": 2,
+        "outputs": 2,
+        "halt_if": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "entity_id": "binary_sensor.livingroommotionsensor_occupancy",
+        "state_type": "str",
+        "blockInputOverrides": false,
+        "outputProperties": [
             {
-                "t": "eq",
-                "v": "on",
-                "vt": "str"
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
             },
             {
-                "t": "eq",
-                "v": "off",
-                "vt": "str"
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entity"
             }
         ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 2,
-        "x": 460,
-        "y": 240,
+        "override_topic": false,
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "x": 870,
+        "y": 440,
         "wires": [
+            [],
             [
-                "ce9168d01657b0b0"
-            ],
-            [
-                "395913ebd2db9726"
+                "3d031c292d2ed8c4"
             ]
-        ]
-    },
-    {
-        "id": "ce9168d01657b0b0",
-        "type": "api-call-service",
-        "z": "7f2efefbbceb30df",
-        "name": "Office Lights On",
-        "server": "d6ccf41005253901",
-        "version": 3,
-        "debugenabled": false,
-        "service_domain": "light",
-        "service": "turn_on",
-        "entityId": "light.office_ceiling_lights",
-        "data": "",
-        "dataType": "jsonata",
-        "mergecontext": "",
-        "mustacheAltTags": false,
-        "outputProperties": [],
-        "queue": "none",
-        "x": 670,
-        "y": 180,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "395913ebd2db9726",
-        "type": "trigger",
-        "z": "7f2efefbbceb30df",
-        "name": "",
-        "op1": "1",
-        "op2": "0",
-        "op1type": "str",
-        "op2type": "str",
-        "duration": "60",
-        "extend": false,
-        "overrideDelay": false,
-        "units": "s",
-        "reset": "",
-        "bytopic": "all",
-        "topic": "topic",
-        "outputs": 1,
-        "x": 640,
-        "y": 300,
-        "wires": [
-            [
-                "4a8e25e8d56c49b4"
-            ]
-        ]
-    },
-    {
-        "id": "4a8e25e8d56c49b4",
-        "type": "api-call-service",
-        "z": "7f2efefbbceb30df",
-        "name": "Office Lights Off",
-        "server": "d6ccf41005253901",
-        "version": 3,
-        "debugenabled": false,
-        "service_domain": "light",
-        "service": "turn_off",
-        "entityId": "light.office_ceiling_lights",
-        "data": "",
-        "dataType": "jsonata",
-        "mergecontext": "",
-        "mustacheAltTags": false,
-        "outputProperties": [],
-        "queue": "none",
-        "x": 890,
-        "y": 300,
-        "wires": [
-            []
         ]
     }
 ]

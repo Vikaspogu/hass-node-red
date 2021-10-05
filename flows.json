@@ -16,7 +16,7 @@
     {
         "id": "a0b0c69958ec912d",
         "type": "tab",
-        "label": "Garage Door Notifications",
+        "label": "Garage Door",
         "disabled": false,
         "info": ""
     },
@@ -188,20 +188,20 @@
         "id": "c4de164da122a430",
         "type": "api-call-service",
         "z": "a0b0c69958ec912d",
-        "name": "Notify if open",
+        "name": "Notify if garage door is open",
         "server": "d6ccf41005253901",
         "version": 3,
-        "debugenabled": false,
+        "debugenabled": true,
         "service_domain": "notify",
         "service": "mobile_app_sm_g781v",
         "entityId": "",
-        "data": "",
+        "data": "{\"message\":\"The garage door has been open for 15 minutes.\",\"title\":\"Your Garage Door Friend\"}",
         "dataType": "jsonata",
         "mergecontext": "",
         "mustacheAltTags": false,
         "outputProperties": [],
         "queue": "none",
-        "x": 650,
+        "x": 700,
         "y": 200,
         "wires": [
             []
@@ -526,7 +526,7 @@
         "halt_if": "on",
         "halt_if_type": "str",
         "halt_if_compare": "is",
-        "entity_id": "light.living_room_dining_lights",
+        "entity_id": "light.living_room_dining_lights_2",
         "state_type": "str",
         "blockInputOverrides": false,
         "outputProperties": [
@@ -568,7 +568,7 @@
         "halt_if": "on",
         "halt_if_type": "str",
         "halt_if_compare": "is",
-        "entity_id": "light.living_room_dining_lights",
+        "entity_id": "light.living_room_dining_lights_2",
         "state_type": "str",
         "blockInputOverrides": false,
         "outputProperties": [
@@ -609,15 +609,15 @@
         "debugenabled": false,
         "service_domain": "light",
         "service": "turn_on",
-        "entityId": "light.living_room_dining_lights",
+        "entityId": "light.living_room_dining_lights_2",
         "data": "",
         "dataType": "jsonata",
         "mergecontext": "",
         "mustacheAltTags": false,
         "outputProperties": [],
         "queue": "none",
-        "x": 500,
-        "y": 340,
+        "x": 540,
+        "y": 300,
         "wires": [
             []
         ]
@@ -658,7 +658,9 @@
         "x": 520,
         "y": 440,
         "wires": [
-            [],
+            [
+                "f947340ee4768f15"
+            ],
             [
                 "7a55c1597ace4610"
             ]
@@ -698,7 +700,7 @@
         "debugenabled": false,
         "service_domain": "light",
         "service": "turn_off",
-        "entityId": "light.living_room_dining_lights",
+        "entityId": "light.living_room_dining_lights_2",
         "data": "",
         "dataType": "jsonata",
         "mergecontext": "",
@@ -793,6 +795,136 @@
             [
                 "3d031c292d2ed8c4"
             ]
+        ]
+    },
+    {
+        "id": "f947340ee4768f15",
+        "type": "api-call-service",
+        "z": "7f54fc151e2b8fe4",
+        "name": "Turn lights on",
+        "server": "d6ccf41005253901",
+        "version": 3,
+        "debugenabled": false,
+        "service_domain": "light",
+        "service": "turn_on",
+        "entityId": "light.living_room_dining_lights_2",
+        "data": "",
+        "dataType": "jsonata",
+        "mergecontext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 700,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9d39994115a8fb38",
+        "type": "server-state-changed",
+        "z": "a0b0c69958ec912d",
+        "name": "Garage Door",
+        "server": "d6ccf41005253901",
+        "version": 3,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
+        "entityidfilter": "cover.garage_door",
+        "entityidfiltertype": "exact",
+        "outputinitially": false,
+        "state_type": "str",
+        "haltifstate": "open",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "outputs": 2,
+        "output_only_on_state_change": true,
+        "for": "15",
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": false,
+        "ignoreCurrentStateUnavailable": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "eventData"
+            },
+            {
+                "property": "topic",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "triggerId"
+            }
+        ],
+        "x": 150,
+        "y": 320,
+        "wires": [
+            [
+                "dbccb7c175d9f470"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "dbccb7c175d9f470",
+        "type": "time-range-switch",
+        "z": "a0b0c69958ec912d",
+        "name": "Between 10PM-04:30AM",
+        "lat": "44.085252110053204",
+        "lon": "-92.49032161185444",
+        "startTime": "22:00",
+        "endTime": "04:30",
+        "startOffset": 0,
+        "endOffset": 0,
+        "x": 390,
+        "y": 320,
+        "wires": [
+            [
+                "5977776c24eff393"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "5977776c24eff393",
+        "type": "api-call-service",
+        "z": "a0b0c69958ec912d",
+        "name": "Close garage door",
+        "server": "d6ccf41005253901",
+        "version": 3,
+        "debugenabled": false,
+        "service_domain": "cover",
+        "service": "close_cover",
+        "entityId": "cover.garage_door",
+        "data": "",
+        "dataType": "jsonata",
+        "mergecontext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 680,
+        "y": 320,
+        "wires": [
+            []
         ]
     }
 ]

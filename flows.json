@@ -28,6 +28,14 @@
         "info": ""
     },
     {
+        "id": "7a50c5242f5febf8",
+        "type": "tab",
+        "label": "Kitchen",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "d6ccf41005253901",
         "type": "server",
         "name": "Home Assistant",
@@ -49,7 +57,7 @@
         "halt_if": "on",
         "halt_if_type": "str",
         "halt_if_compare": "is",
-        "entity_id": "light.office_ceiling_lights",
+        "entity_id": "light.office_ceiling_lights_group",
         "state_type": "str",
         "blockInputOverrides": false,
         "outputProperties": [
@@ -91,7 +99,7 @@
         "halt_if": "on",
         "halt_if_type": "str",
         "halt_if_compare": "is",
-        "entity_id": "light.office_ceiling_lights",
+        "entity_id": "light.office_ceiling_lights_group",
         "state_type": "str",
         "blockInputOverrides": false,
         "outputProperties": [
@@ -132,7 +140,7 @@
         "debugenabled": false,
         "service_domain": "light",
         "service": "turn_off",
-        "entityId": "light.office_ceiling_lights",
+        "entityId": "light.office_ceiling_lights_group",
         "data": "",
         "dataType": "jsonata",
         "mergecontext": "",
@@ -155,7 +163,7 @@
         "debugenabled": false,
         "service_domain": "light",
         "service": "turn_on",
-        "entityId": "light.office_ceiling_lights",
+        "entityId": "light.office_ceiling_lights_group",
         "data": "",
         "dataType": "jsonata",
         "mergecontext": "",
@@ -366,108 +374,6 @@
         ]
     },
     {
-        "id": "6dbf42207fc3fa93",
-        "type": "inject",
-        "z": "7f2efefbbceb30df",
-        "name": "Weekdays at 8AM",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "01 08 * * 1,2,3,4,5",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payloadType": "date",
-        "x": 140,
-        "y": 260,
-        "wires": [
-            [
-                "b03378f66d293f16"
-            ]
-        ]
-    },
-    {
-        "id": "b03378f66d293f16",
-        "type": "api-call-service",
-        "z": "7f2efefbbceb30df",
-        "name": "Office lights on",
-        "server": "d6ccf41005253901",
-        "version": 3,
-        "debugenabled": false,
-        "service_domain": "light",
-        "service": "turn_on",
-        "entityId": "light.office_ceiling_lights",
-        "data": "",
-        "dataType": "jsonata",
-        "mergecontext": "",
-        "mustacheAltTags": false,
-        "outputProperties": [],
-        "queue": "none",
-        "x": 400,
-        "y": 260,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "29d85240797c7ab5",
-        "type": "inject",
-        "z": "7f2efefbbceb30df",
-        "name": "Weekdays at 5PM",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "00 17 * * 1,2,3,4,5",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payloadType": "date",
-        "x": 140,
-        "y": 200,
-        "wires": [
-            [
-                "267002e17c24444f"
-            ]
-        ]
-    },
-    {
-        "id": "267002e17c24444f",
-        "type": "api-call-service",
-        "z": "7f2efefbbceb30df",
-        "name": "Office lights off",
-        "server": "d6ccf41005253901",
-        "version": 3,
-        "debugenabled": false,
-        "service_domain": "light",
-        "service": "turn_off",
-        "entityId": "light.office_ceiling_lights",
-        "data": "",
-        "dataType": "jsonata",
-        "mergecontext": "",
-        "mustacheAltTags": false,
-        "outputProperties": [],
-        "queue": "none",
-        "x": 400,
-        "y": 200,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "4cfb03555c272a85",
         "type": "inject",
         "z": "7f2efefbbceb30df",
@@ -505,7 +411,7 @@
         "debugenabled": false,
         "service_domain": "switch",
         "service": "turn_on",
-        "entityId": "switch.officepurifier",
+        "entityId": "switch.office_purifier",
         "data": "",
         "dataType": "jsonata",
         "mergecontext": "",
@@ -556,7 +462,7 @@
         "debugenabled": false,
         "service_domain": "switch",
         "service": "turn_off",
-        "entityId": "switch.officepurifier",
+        "entityId": "switch.office_purifier",
         "data": "",
         "dataType": "jsonata",
         "mergecontext": "",
@@ -617,13 +523,13 @@
         "id": "6f1b779b483d1207",
         "type": "switch",
         "z": "7f2efefbbceb30df",
-        "name": "Distance greater than 2.5",
+        "name": "Distance greater than 1.0",
         "property": "data.attributes.distance",
         "propertyType": "msg",
         "rules": [
             {
                 "t": "gte",
-                "v": "2.5",
+                "v": "1.0",
                 "vt": "str"
             }
         ],
@@ -648,7 +554,7 @@
         "debugenabled": false,
         "service_domain": "light",
         "service": "turn_off",
-        "entityId": "light.office_ceiling_lights",
+        "entityId": "light.office_ceiling_lights_group",
         "data": "",
         "dataType": "jsonata",
         "mergecontext": "",
@@ -709,13 +615,13 @@
         "id": "4d705941a497fec9",
         "type": "switch",
         "z": "7f2efefbbceb30df",
-        "name": "Distance greater than 2.5",
+        "name": "Distance greater than 1.0",
         "property": "data.attributes.distance",
         "propertyType": "msg",
         "rules": [
             {
                 "t": "gte",
-                "v": "2.5",
+                "v": "1.0",
                 "vt": "str"
             }
         ],
@@ -741,7 +647,7 @@
         "halt_if": "on",
         "halt_if_type": "str",
         "halt_if_compare": "is",
-        "entity_id": "light.office_ceiling_lights",
+        "entity_id": "light.office_ceiling_lights_group",
         "state_type": "str",
         "blockInputOverrides": false,
         "outputProperties": [
@@ -827,8 +733,8 @@
                 "valueType": "triggerId"
             }
         ],
-        "x": 150,
-        "y": 780,
+        "x": 120,
+        "y": 640,
         "wires": [
             [
                 "8a598c989e060fb3"
@@ -853,8 +759,8 @@
         "mustacheAltTags": false,
         "outputProperties": [],
         "queue": "none",
-        "x": 410,
-        "y": 780,
+        "x": 380,
+        "y": 640,
         "wires": [
             []
         ]
@@ -936,7 +842,7 @@
         "halt_if": "on",
         "halt_if_type": "str",
         "halt_if_compare": "is",
-        "entity_id": "light.living_room_dining_lights",
+        "entity_id": "light.living_room_dining_group",
         "state_type": "str",
         "blockInputOverrides": false,
         "outputProperties": [
@@ -978,7 +884,7 @@
         "halt_if": "on",
         "halt_if_type": "str",
         "halt_if_compare": "is",
-        "entity_id": "light.living_room_dining_lights",
+        "entity_id": "light.living_room_dining_group",
         "state_type": "str",
         "blockInputOverrides": false,
         "outputProperties": [
@@ -1019,7 +925,7 @@
         "debugenabled": false,
         "service_domain": "light",
         "service": "turn_on",
-        "entityId": "light.living_room_dining_lights",
+        "entityId": "light.living_room_dining_group",
         "data": "",
         "dataType": "jsonata",
         "mergecontext": "",
@@ -1111,7 +1017,7 @@
         "debugenabled": false,
         "service_domain": "light",
         "service": "turn_off",
-        "entityId": "light.living_room_dining_lights",
+        "entityId": "light.living_room_dining_group",
         "data": "",
         "dataType": "jsonata",
         "mergecontext": "",
@@ -1240,7 +1146,7 @@
         "debugenabled": false,
         "service_domain": "light",
         "service": "turn_off",
-        "entityId": "light.living_room_dining_lights",
+        "entityId": "light.living_room_dining_group",
         "data": "",
         "dataType": "jsonata",
         "mergecontext": "",
@@ -1316,7 +1222,7 @@
         "topic": "",
         "payloadType": "date",
         "x": 150,
-        "y": 1240,
+        "y": 1300,
         "wires": [
             [
                 "10fed5dd6dcbb45f"
@@ -1341,7 +1247,7 @@
         "outputProperties": [],
         "queue": "none",
         "x": 400,
-        "y": 1240,
+        "y": 1300,
         "wires": [
             []
         ]
@@ -1626,12 +1532,11 @@
         "topic": "",
         "payloadType": "date",
         "x": 110,
-        "y": 900,
+        "y": 920,
         "wires": [
             [
                 "a062d3d9377a4aca",
-                "f8da30b0a080f252",
-                "a8264d9f66abf79b"
+                "f8da30b0a080f252"
             ]
         ]
     },
@@ -1668,7 +1573,7 @@
         "override_payload": "msg",
         "entity_location": "data",
         "override_data": "msg",
-        "x": 280,
+        "x": 320,
         "y": 980,
         "wires": [
             [
@@ -1729,7 +1634,7 @@
         "debugenabled": false,
         "service_domain": "light",
         "service": "turn_on",
-        "entityId": "light.living_room_dining_lights",
+        "entityId": "light.living_room_dining_group",
         "data": "",
         "dataType": "jsonata",
         "mergecontext": "",
@@ -1900,7 +1805,7 @@
         "debugenabled": false,
         "service_domain": "light",
         "service": "turn_on",
-        "entityId": "light.living_room_dining_lights",
+        "entityId": "light.living_room_dining_group",
         "data": "",
         "dataType": "jsonata",
         "mergecontext": "",
@@ -1990,7 +1895,7 @@
         "halt_if": "on",
         "halt_if_type": "str",
         "halt_if_compare": "is",
-        "entity_id": "light.living_room_dining_lights",
+        "entity_id": "light.living_room_dining_group",
         "state_type": "str",
         "blockInputOverrides": false,
         "outputProperties": [
@@ -2031,7 +1936,7 @@
         "debugenabled": false,
         "service_domain": "light",
         "service": "turn_off",
-        "entityId": "light.living_room_dining_lights",
+        "entityId": "light.living_room_dining_group",
         "data": "",
         "dataType": "jsonata",
         "mergecontext": "",
@@ -2054,7 +1959,7 @@
         "debugenabled": false,
         "service_domain": "light",
         "service": "turn_on",
-        "entityId": "light.living_room_dining_lights",
+        "entityId": "light.living_room_dining_group",
         "data": "",
         "dataType": "jsonata",
         "mergecontext": "",
@@ -2084,7 +1989,7 @@
         "mustacheAltTags": false,
         "outputProperties": [],
         "queue": "none",
-        "x": 570,
+        "x": 590,
         "y": 920,
         "wires": [
             []
@@ -2176,7 +2081,7 @@
         "outputs": 2,
         "halt_if": "off",
         "halt_if_type": "str",
-        "halt_if_compare": "is_not",
+        "halt_if_compare": "is",
         "entity_id": "climate.living_room",
         "state_type": "str",
         "blockInputOverrides": false,
@@ -2199,13 +2104,13 @@
         "override_payload": "msg",
         "entity_location": "data",
         "override_data": "msg",
-        "x": 330,
+        "x": 350,
         "y": 920,
         "wires": [
+            [],
             [
                 "6f70d5cce93a0197"
-            ],
-            []
+            ]
         ]
     },
     {
@@ -2378,10 +2283,12 @@
         "mustacheAltTags": false,
         "outputProperties": [],
         "queue": "none",
-        "x": 290,
-        "y": 860,
+        "x": 310,
+        "y": 1220,
         "wires": [
-            []
+            [
+                "35eced91530d0cd2"
+            ]
         ]
     },
     {
@@ -2399,12 +2306,12 @@
             }
         ],
         "repeat": "",
-        "crontab": "",
+        "crontab": "00 06 * * *",
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
         "payloadType": "date",
-        "x": 100,
+        "x": 110,
         "y": 1160,
         "wires": [
             [
@@ -2431,6 +2338,132 @@
         "queue": "none",
         "x": 320,
         "y": 1160,
+        "wires": [
+            [
+                "30dea704513f0bcb"
+            ]
+        ]
+    },
+    {
+        "id": "d57b6dae38cccf65",
+        "type": "inject",
+        "z": "7f54fc151e2b8fe4",
+        "name": "At 5:00PM",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "00 17 * * *",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "date",
+        "x": 110,
+        "y": 1220,
+        "wires": [
+            [
+                "a8264d9f66abf79b"
+            ]
+        ]
+    },
+    {
+        "id": "30dea704513f0bcb",
+        "type": "delay",
+        "z": "7f54fc151e2b8fe4",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "10",
+        "timeoutUnits": "minutes",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 510,
+        "y": 1160,
+        "wires": [
+            [
+                "f836929c2aeb7ef7"
+            ]
+        ]
+    },
+    {
+        "id": "35eced91530d0cd2",
+        "type": "delay",
+        "z": "7f54fc151e2b8fe4",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "10",
+        "timeoutUnits": "minutes",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 510,
+        "y": 1220,
+        "wires": [
+            [
+                "13049ca71400f264"
+            ]
+        ]
+    },
+    {
+        "id": "f836929c2aeb7ef7",
+        "type": "api-call-service",
+        "z": "7f54fc151e2b8fe4",
+        "name": "Open curtains",
+        "server": "d6ccf41005253901",
+        "version": 3,
+        "debugenabled": false,
+        "service_domain": "cover",
+        "service": "open_cover",
+        "entityId": "cover.curtain_living_room",
+        "data": "",
+        "dataType": "jsonata",
+        "mergecontext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 700,
+        "y": 1160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "13049ca71400f264",
+        "type": "api-call-service",
+        "z": "7f54fc151e2b8fe4",
+        "name": "Close curtain ",
+        "server": "d6ccf41005253901",
+        "version": 3,
+        "debugenabled": false,
+        "service_domain": "cover",
+        "service": "close_cover",
+        "entityId": "cover.curtain_living_room",
+        "data": "",
+        "dataType": "jsonata",
+        "mergecontext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 690,
+        "y": 1220,
         "wires": [
             []
         ]
@@ -2462,7 +2495,7 @@
         "halt_if_compare": "is",
         "outputs": 2,
         "output_only_on_state_change": true,
-        "for": "0",
+        "for": "15",
         "forType": "num",
         "forUnits": "minutes",
         "ignorePrevStateNull": false,
@@ -2693,7 +2726,7 @@
         "debugenabled": false,
         "service_domain": "switch",
         "service": "turn_off",
-        "entityId": "switch.bedroompurifier",
+        "entityId": "switch.bedroom_purifier",
         "data": "",
         "dataType": "jsonata",
         "mergecontext": "",
@@ -2716,7 +2749,7 @@
         "debugenabled": false,
         "service_domain": "switch",
         "service": "turn_on",
-        "entityId": "switch.bedroompurifier",
+        "entityId": "switch.bedroom_purifier",
         "data": "",
         "dataType": "jsonata",
         "mergecontext": "",
@@ -2770,7 +2803,7 @@
         "version": 3,
         "debugenabled": false,
         "service_domain": "cover",
-        "service": "close_cover",
+        "service": "open_cover",
         "entityId": "cover.bedroom_curtain",
         "data": "",
         "dataType": "jsonata",
@@ -2781,7 +2814,9 @@
         "x": 430,
         "y": 260,
         "wires": [
-            []
+            [
+                "1cd889720b4e1302"
+            ]
         ]
     },
     {
@@ -2809,7 +2844,6 @@
         "wires": [
             [
                 "7739215a632099af",
-                "c5d117e8a158a93f",
                 "92424bae377c4e5e",
                 "f0a37d5e488a4dbd",
                 "0ee3f00f1c17f62d"
@@ -2825,7 +2859,7 @@
         "version": 3,
         "debugenabled": false,
         "service_domain": "cover",
-        "service": "open_cover",
+        "service": "close_cover",
         "entityId": "cover.bedroom_curtain",
         "data": "",
         "dataType": "jsonata",
@@ -2834,32 +2868,11 @@
         "outputProperties": [],
         "queue": "none",
         "x": 430,
-        "y": 440,
+        "y": 480,
         "wires": [
-            []
-        ]
-    },
-    {
-        "id": "c5d117e8a158a93f",
-        "type": "api-call-service",
-        "z": "04cb334222380c1b",
-        "name": "Turn on Led strip",
-        "server": "d6ccf41005253901",
-        "version": 3,
-        "debugenabled": false,
-        "service_domain": "switch",
-        "service": "turn_on",
-        "entityId": "switch.smart_power_strip_1",
-        "data": "",
-        "dataType": "jsonata",
-        "mergecontext": "",
-        "mustacheAltTags": false,
-        "outputProperties": [],
-        "queue": "none",
-        "x": 410,
-        "y": 500,
-        "wires": [
-            []
+            [
+                "49fd998a67066f61"
+            ]
         ]
     },
     {
@@ -2903,7 +2916,7 @@
         "outputProperties": [],
         "queue": "none",
         "x": 420,
-        "y": 380,
+        "y": 420,
         "wires": [
             []
         ]
@@ -2992,6 +3005,581 @@
         "wires": [
             [
                 "2079e8b03d274437"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "df6fec020920a75b",
+        "type": "server-state-changed",
+        "z": "04cb334222380c1b",
+        "name": "Temp greater than 72",
+        "server": "d6ccf41005253901",
+        "version": 3,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
+        "entityidfilter": "sensor.ble_temperature_bed_room",
+        "entityidfiltertype": "exact",
+        "outputinitially": false,
+        "state_type": "str",
+        "haltifstate": "72",
+        "halt_if_type": "num",
+        "halt_if_compare": "gte",
+        "outputs": 2,
+        "output_only_on_state_change": true,
+        "for": 0,
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": false,
+        "ignoreCurrentStateUnavailable": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "eventData"
+            },
+            {
+                "property": "topic",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "triggerId"
+            }
+        ],
+        "x": 140,
+        "y": 700,
+        "wires": [
+            [
+                "a6f1936fb8542b39"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "a6f1936fb8542b39",
+        "type": "api-call-service",
+        "z": "04cb334222380c1b",
+        "name": "Turn off thermostat",
+        "server": "d6ccf41005253901",
+        "version": 3,
+        "debugenabled": false,
+        "service_domain": "climate",
+        "service": "turn_off",
+        "entityId": "climate.living_room",
+        "data": "",
+        "dataType": "jsonata",
+        "mergecontext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 410,
+        "y": 700,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c5302b115d8f09a5",
+        "type": "api-call-service",
+        "z": "04cb334222380c1b",
+        "name": "Close bedroom curtains",
+        "server": "d6ccf41005253901",
+        "version": 3,
+        "debugenabled": false,
+        "service_domain": "cover",
+        "service": "close_cover",
+        "entityId": "cover.bedroom_curtain",
+        "data": "",
+        "dataType": "jsonata",
+        "mergecontext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 870,
+        "y": 480,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "02fe7b2c857a5fed",
+        "type": "api-call-service",
+        "z": "04cb334222380c1b",
+        "name": "Open bedroom curtains",
+        "server": "d6ccf41005253901",
+        "version": 3,
+        "debugenabled": false,
+        "service_domain": "cover",
+        "service": "open_cover",
+        "entityId": "cover.bedroom_curtain",
+        "data": "",
+        "dataType": "jsonata",
+        "mergecontext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 850,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1cd889720b4e1302",
+        "type": "delay",
+        "z": "04cb334222380c1b",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "10",
+        "timeoutUnits": "minutes",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 640,
+        "y": 260,
+        "wires": [
+            [
+                "02fe7b2c857a5fed"
+            ]
+        ]
+    },
+    {
+        "id": "49fd998a67066f61",
+        "type": "delay",
+        "z": "04cb334222380c1b",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "10",
+        "timeoutUnits": "minutes",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 650,
+        "y": 480,
+        "wires": [
+            [
+                "c5302b115d8f09a5"
+            ]
+        ]
+    },
+    {
+        "id": "fea9baa7e602d744",
+        "type": "api-current-state",
+        "z": "7a50c5242f5febf8",
+        "name": "Is lights on?",
+        "server": "d6ccf41005253901",
+        "version": 2,
+        "outputs": 2,
+        "halt_if": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "entity_id": "light.kitchen_lights_group",
+        "state_type": "str",
+        "blockInputOverrides": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entity"
+            }
+        ],
+        "override_topic": false,
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "x": 310,
+        "y": 280,
+        "wires": [
+            [],
+            [
+                "63faadd18f0b3337"
+            ]
+        ]
+    },
+    {
+        "id": "545f254f96f3c8b4",
+        "type": "api-current-state",
+        "z": "7a50c5242f5febf8",
+        "name": "Is lights on?",
+        "server": "d6ccf41005253901",
+        "version": 2,
+        "outputs": 2,
+        "halt_if": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "entity_id": "light.kitchen_lights_group",
+        "state_type": "str",
+        "blockInputOverrides": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entity"
+            }
+        ],
+        "override_topic": false,
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "x": 310,
+        "y": 360,
+        "wires": [
+            [
+                "9422c6123ac04f1c"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "0c213032fc9328e6",
+        "type": "api-call-service",
+        "z": "7a50c5242f5febf8",
+        "name": "Kitchen Lights Off",
+        "server": "d6ccf41005253901",
+        "version": 3,
+        "debugenabled": false,
+        "service_domain": "light",
+        "service": "turn_off",
+        "entityId": "light.kitchen_lights_group",
+        "data": "",
+        "dataType": "jsonata",
+        "mergecontext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 790,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "63faadd18f0b3337",
+        "type": "api-call-service",
+        "z": "7a50c5242f5febf8",
+        "name": "Kitchen Lights On",
+        "server": "d6ccf41005253901",
+        "version": 3,
+        "debugenabled": false,
+        "service_domain": "light",
+        "service": "turn_on",
+        "entityId": "light.kitchen_lights_group",
+        "data": "",
+        "dataType": "jsonata",
+        "mergecontext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 510,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d2eae75727d9c9e4",
+        "type": "server-state-changed",
+        "z": "7a50c5242f5febf8",
+        "name": "Kitchen Occupancy",
+        "server": "d6ccf41005253901",
+        "version": 3,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
+        "entityidfilter": "binary_sensor.kitchenmotionsensor_occupancy",
+        "entityidfiltertype": "exact",
+        "outputinitially": false,
+        "state_type": "str",
+        "haltifstate": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "outputs": 2,
+        "output_only_on_state_change": true,
+        "for": 0,
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": false,
+        "ignoreCurrentStateUnavailable": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "eventData"
+            },
+            {
+                "property": "topic",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "triggerId"
+            }
+        ],
+        "x": 110,
+        "y": 320,
+        "wires": [
+            [
+                "fea9baa7e602d744"
+            ],
+            [
+                "545f254f96f3c8b4"
+            ]
+        ]
+    },
+    {
+        "id": "9422c6123ac04f1c",
+        "type": "delay",
+        "z": "7a50c5242f5febf8",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "2",
+        "timeoutUnits": "minutes",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 460,
+        "y": 420,
+        "wires": [
+            [
+                "7955afe07ad2083c"
+            ]
+        ]
+    },
+    {
+        "id": "7955afe07ad2083c",
+        "type": "api-current-state",
+        "z": "7a50c5242f5febf8",
+        "name": "Is occupied?",
+        "server": "d6ccf41005253901",
+        "version": 2,
+        "outputs": 2,
+        "halt_if": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "entity_id": "binary_sensor.kitchenmotionsensor_occupancy",
+        "state_type": "str",
+        "blockInputOverrides": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entity"
+            }
+        ],
+        "override_topic": false,
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "x": 590,
+        "y": 360,
+        "wires": [
+            [],
+            [
+                "0c213032fc9328e6"
+            ]
+        ]
+    },
+    {
+        "id": "dba4d0f67923a764",
+        "type": "server-state-changed",
+        "z": "7a50c5242f5febf8",
+        "name": "Occupancy Off for 5min",
+        "server": "d6ccf41005253901",
+        "version": 3,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
+        "entityidfilter": "binary_sensor.kitchenmotionsensor_occupancy",
+        "entityidfiltertype": "exact",
+        "outputinitially": false,
+        "state_type": "str",
+        "haltifstate": "off",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "outputs": 2,
+        "output_only_on_state_change": true,
+        "for": "5",
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": false,
+        "ignoreCurrentStateUnavailable": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "eventData"
+            },
+            {
+                "property": "topic",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "triggerId"
+            }
+        ],
+        "x": 120,
+        "y": 180,
+        "wires": [
+            [
+                "8fb8f9a54beda089"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "9dade59e99620c4d",
+        "type": "api-call-service",
+        "z": "7a50c5242f5febf8",
+        "name": "Kitchen Lights Off",
+        "server": "d6ccf41005253901",
+        "version": 3,
+        "debugenabled": false,
+        "service_domain": "light",
+        "service": "turn_off",
+        "entityId": "light.kitchen_lights_group",
+        "data": "",
+        "dataType": "jsonata",
+        "mergecontext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 530,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8fb8f9a54beda089",
+        "type": "api-current-state",
+        "z": "7a50c5242f5febf8",
+        "name": "Is lights on?",
+        "server": "d6ccf41005253901",
+        "version": 2,
+        "outputs": 2,
+        "halt_if": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "entity_id": "light.kitchen_lights_group",
+        "state_type": "str",
+        "blockInputOverrides": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entity"
+            }
+        ],
+        "override_topic": false,
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "x": 330,
+        "y": 180,
+        "wires": [
+            [
+                "9dade59e99620c4d"
             ],
             []
         ]

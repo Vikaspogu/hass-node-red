@@ -932,8 +932,8 @@
         "mustacheAltTags": false,
         "outputProperties": [],
         "queue": "none",
-        "x": 960,
-        "y": 320,
+        "x": 940,
+        "y": 340,
         "wires": [
             []
         ]
@@ -971,12 +971,10 @@
         "override_payload": "msg",
         "entity_location": "data",
         "override_data": "msg",
-        "x": 520,
+        "x": 480,
         "y": 440,
         "wires": [
-            [
-                "751378d0793909dc"
-            ],
+            [],
             [
                 "7a55c1597ace4610"
             ]
@@ -999,8 +997,8 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 640,
-        "y": 520,
+        "x": 680,
+        "y": 480,
         "wires": [
             [
                 "4d39cebd2b5c260a"
@@ -1064,7 +1062,7 @@
         "entity_location": "data",
         "override_data": "msg",
         "x": 830,
-        "y": 520,
+        "y": 480,
         "wires": [
             [],
             [
@@ -1128,7 +1126,7 @@
             }
         ],
         "x": 140,
-        "y": 180,
+        "y": 280,
         "wires": [
             [
                 "74655bc51712ce86"
@@ -1153,8 +1151,8 @@
         "mustacheAltTags": false,
         "outputProperties": [],
         "queue": "none",
-        "x": 820,
-        "y": 180,
+        "x": 760,
+        "y": 280,
         "wires": [
             []
         ]
@@ -1192,8 +1190,8 @@
         "override_payload": "msg",
         "entity_location": "data",
         "override_data": "msg",
-        "x": 640,
-        "y": 180,
+        "x": 580,
+        "y": 280,
         "wires": [
             [],
             [
@@ -1222,7 +1220,7 @@
         "topic": "",
         "payloadType": "date",
         "x": 150,
-        "y": 1300,
+        "y": 1400,
         "wires": [
             [
                 "10fed5dd6dcbb45f"
@@ -1247,7 +1245,7 @@
         "outputProperties": [],
         "queue": "none",
         "x": 400,
-        "y": 1300,
+        "y": 1400,
         "wires": [
             []
         ]
@@ -1328,7 +1326,7 @@
         "entity_location": "data",
         "override_data": "msg",
         "x": 760,
-        "y": 320,
+        "y": 340,
         "wires": [
             [],
             [
@@ -1615,7 +1613,7 @@
         "override_payload": "msg",
         "entity_location": "data",
         "override_data": "msg",
-        "x": 250,
+        "x": 270,
         "y": 800,
         "wires": [
             [
@@ -1644,48 +1642,6 @@
         "x": 440,
         "y": 800,
         "wires": [
-            []
-        ]
-    },
-    {
-        "id": "751378d0793909dc",
-        "type": "api-current-state",
-        "z": "7f54fc151e2b8fe4",
-        "name": "Lights override off?",
-        "server": "d6ccf41005253901",
-        "version": 2,
-        "outputs": 2,
-        "halt_if": "off",
-        "halt_if_type": "str",
-        "halt_if_compare": "is",
-        "entity_id": "input_boolean.living_room_override",
-        "state_type": "str",
-        "blockInputOverrides": false,
-        "outputProperties": [
-            {
-                "property": "payload",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "entityState"
-            },
-            {
-                "property": "data",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "entity"
-            }
-        ],
-        "override_topic": false,
-        "state_location": "payload",
-        "override_payload": "msg",
-        "entity_location": "data",
-        "override_data": "msg",
-        "x": 730,
-        "y": 440,
-        "wires": [
-            [
-                "3d031c292d2ed8c4"
-            ],
             []
         ]
     },
@@ -1813,75 +1769,9 @@
         "outputProperties": [],
         "queue": "none",
         "x": 500,
-        "y": 560,
+        "y": 540,
         "wires": [
             []
-        ]
-    },
-    {
-        "id": "a4042acdd32b35b1",
-        "type": "server-state-changed",
-        "z": "7f54fc151e2b8fe4",
-        "name": "Override lights on",
-        "server": "d6ccf41005253901",
-        "version": 3,
-        "exposeToHomeAssistant": false,
-        "haConfig": [
-            {
-                "property": "name",
-                "value": ""
-            },
-            {
-                "property": "icon",
-                "value": ""
-            }
-        ],
-        "entityidfilter": "input_boolean.living_room_override",
-        "entityidfiltertype": "exact",
-        "outputinitially": false,
-        "state_type": "str",
-        "haltifstate": "on",
-        "halt_if_type": "str",
-        "halt_if_compare": "is",
-        "outputs": 2,
-        "output_only_on_state_change": true,
-        "for": 0,
-        "forType": "num",
-        "forUnits": "minutes",
-        "ignorePrevStateNull": false,
-        "ignorePrevStateUnknown": false,
-        "ignorePrevStateUnavailable": false,
-        "ignoreCurrentStateUnknown": false,
-        "ignoreCurrentStateUnavailable": false,
-        "outputProperties": [
-            {
-                "property": "payload",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "entityState"
-            },
-            {
-                "property": "data",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "eventData"
-            },
-            {
-                "property": "topic",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "triggerId"
-            }
-        ],
-        "x": 100,
-        "y": 280,
-        "wires": [
-            [
-                "5eba36913745ac61"
-            ],
-            [
-                "1e33b5faab4ff348"
-            ]
         ]
     },
     {
@@ -1917,58 +1807,12 @@
         "override_payload": "msg",
         "entity_location": "data",
         "override_data": "msg",
-        "x": 410,
-        "y": 180,
+        "x": 390,
+        "y": 280,
         "wires": [
             [
                 "0f9a76747d318afd"
             ],
-            []
-        ]
-    },
-    {
-        "id": "1e33b5faab4ff348",
-        "type": "api-call-service",
-        "z": "7f54fc151e2b8fe4",
-        "name": "Lights Off",
-        "server": "d6ccf41005253901",
-        "version": 3,
-        "debugenabled": false,
-        "service_domain": "light",
-        "service": "turn_off",
-        "entityId": "light.living_room_dining_group",
-        "data": "",
-        "dataType": "jsonata",
-        "mergecontext": "",
-        "mustacheAltTags": false,
-        "outputProperties": [],
-        "queue": "none",
-        "x": 280,
-        "y": 300,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "5eba36913745ac61",
-        "type": "api-call-service",
-        "z": "7f54fc151e2b8fe4",
-        "name": "Lights On",
-        "server": "d6ccf41005253901",
-        "version": 3,
-        "debugenabled": false,
-        "service_domain": "light",
-        "service": "turn_on",
-        "entityId": "light.living_room_dining_group",
-        "data": "",
-        "dataType": "jsonata",
-        "mergecontext": "",
-        "mustacheAltTags": false,
-        "outputProperties": [],
-        "queue": "none",
-        "x": 280,
-        "y": 240,
-        "wires": [
             []
         ]
     },
@@ -2180,93 +2024,6 @@
         ]
     },
     {
-        "id": "20eee09b7c3ecf7f",
-        "type": "server-state-changed",
-        "z": "7f54fc151e2b8fe4",
-        "name": "Light override for 2hrs",
-        "server": "d6ccf41005253901",
-        "version": 3,
-        "exposeToHomeAssistant": false,
-        "haConfig": [
-            {
-                "property": "name",
-                "value": ""
-            },
-            {
-                "property": "icon",
-                "value": ""
-            }
-        ],
-        "entityidfilter": "input_boolean.living_room_override",
-        "entityidfiltertype": "exact",
-        "outputinitially": false,
-        "state_type": "str",
-        "haltifstate": "on",
-        "halt_if_type": "str",
-        "halt_if_compare": "is",
-        "outputs": 2,
-        "output_only_on_state_change": true,
-        "for": "2",
-        "forType": "num",
-        "forUnits": "hours",
-        "ignorePrevStateNull": false,
-        "ignorePrevStateUnknown": false,
-        "ignorePrevStateUnavailable": false,
-        "ignoreCurrentStateUnknown": false,
-        "ignoreCurrentStateUnavailable": false,
-        "outputProperties": [
-            {
-                "property": "payload",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "entityState"
-            },
-            {
-                "property": "data",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "eventData"
-            },
-            {
-                "property": "topic",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "triggerId"
-            }
-        ],
-        "x": 120,
-        "y": 100,
-        "wires": [
-            [
-                "d2e1879f5e32d6d2"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "d2e1879f5e32d6d2",
-        "type": "api-call-service",
-        "z": "7f54fc151e2b8fe4",
-        "name": "Turn off override",
-        "server": "d6ccf41005253901",
-        "version": 3,
-        "debugenabled": false,
-        "service_domain": "input_boolean",
-        "service": "turn_off",
-        "entityId": "input_boolean.living_room_override",
-        "data": "",
-        "dataType": "jsonata",
-        "mergecontext": "",
-        "mustacheAltTags": false,
-        "outputProperties": [],
-        "queue": "none",
-        "x": 340,
-        "y": 100,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "a8264d9f66abf79b",
         "type": "api-call-service",
         "z": "7f54fc151e2b8fe4",
@@ -2341,34 +2098,6 @@
         "wires": [
             [
                 "30dea704513f0bcb"
-            ]
-        ]
-    },
-    {
-        "id": "d57b6dae38cccf65",
-        "type": "inject",
-        "z": "7f54fc151e2b8fe4",
-        "name": "At 5:00PM",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "00 17 * * *",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payloadType": "date",
-        "x": 110,
-        "y": 1220,
-        "wires": [
-            [
-                "a8264d9f66abf79b"
             ]
         ]
     },
@@ -2464,6 +2193,109 @@
         "queue": "none",
         "x": 690,
         "y": 1220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2872f0f94fdef042",
+        "type": "inject",
+        "z": "7f54fc151e2b8fe4",
+        "name": "At 4:00PM",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "00 16 * * *",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "date",
+        "x": 110,
+        "y": 1460,
+        "wires": [
+            [
+                "8d92faef90e9edfe"
+            ]
+        ]
+    },
+    {
+        "id": "8d92faef90e9edfe",
+        "type": "api-call-service",
+        "z": "7f54fc151e2b8fe4",
+        "name": "Turn On Christmas lights",
+        "server": "d6ccf41005253901",
+        "version": 3,
+        "debugenabled": false,
+        "service_domain": "switch",
+        "service": "turn_on",
+        "entityId": "switch.smart_plug_3_socket_1, switch.office_area",
+        "data": "",
+        "dataType": "jsonata",
+        "mergecontext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 350,
+        "y": 1460,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "97c794e8ef265a82",
+        "type": "inject",
+        "z": "7f54fc151e2b8fe4",
+        "name": "At 9:00PM",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "00 21 * * *",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "date",
+        "x": 110,
+        "y": 1220,
+        "wires": [
+            [
+                "a8264d9f66abf79b",
+                "b76f2932853b2106"
+            ]
+        ]
+    },
+    {
+        "id": "b76f2932853b2106",
+        "type": "api-call-service",
+        "z": "7f54fc151e2b8fe4",
+        "name": "Turn Off Christmas lights",
+        "server": "d6ccf41005253901",
+        "version": 3,
+        "debugenabled": false,
+        "service_domain": "switch",
+        "service": "turn_off",
+        "entityId": "switch.smart_plug_3_socket_1, switch.office_area",
+        "data": "",
+        "dataType": "jsonata",
+        "mergecontext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 350,
+        "y": 1280,
         "wires": [
             []
         ]

@@ -36,6 +36,14 @@
         "env": []
     },
     {
+        "id": "774d9f8888f0a1fd",
+        "type": "tab",
+        "label": "Timed Schedule",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "d6ccf41005253901",
         "type": "server",
         "name": "Home Assistant",
@@ -80,7 +88,7 @@
         "entity_location": "data",
         "override_data": "msg",
         "x": 310,
-        "y": 460,
+        "y": 200,
         "wires": [
             [],
             [
@@ -122,7 +130,7 @@
         "entity_location": "data",
         "override_data": "msg",
         "x": 310,
-        "y": 540,
+        "y": 280,
         "wires": [
             [
                 "67dacfe3e5066af4"
@@ -148,7 +156,7 @@
         "outputProperties": [],
         "queue": "none",
         "x": 1120,
-        "y": 560,
+        "y": 300,
         "wires": [
             []
         ]
@@ -171,7 +179,7 @@
         "outputProperties": [],
         "queue": "none",
         "x": 520,
-        "y": 440,
+        "y": 180,
         "wires": [
             []
         ]
@@ -232,7 +240,7 @@
             }
         ],
         "x": 110,
-        "y": 500,
+        "y": 240,
         "wires": [
             [
                 "97b1659216df3b70"
@@ -260,7 +268,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 740,
-        "y": 560,
+        "y": 300,
         "wires": [
             [
                 "a69b697c51e79cfd"
@@ -301,7 +309,7 @@
         "entity_location": "data",
         "override_data": "msg",
         "x": 910,
-        "y": 560,
+        "y": 300,
         "wires": [
             [],
             [
@@ -365,113 +373,11 @@
             }
         ],
         "x": 120,
-        "y": 360,
+        "y": 100,
         "wires": [
             [
                 "c8784f2370284d59"
             ],
-            []
-        ]
-    },
-    {
-        "id": "4cfb03555c272a85",
-        "type": "inject",
-        "z": "7f2efefbbceb30df",
-        "name": "Everyday at 7AM",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "00 07 * * *",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payloadType": "date",
-        "x": 130,
-        "y": 80,
-        "wires": [
-            [
-                "98927a55c0b40d21"
-            ]
-        ]
-    },
-    {
-        "id": "98927a55c0b40d21",
-        "type": "api-call-service",
-        "z": "7f2efefbbceb30df",
-        "name": "Office purifier on",
-        "server": "d6ccf41005253901",
-        "version": 3,
-        "debugenabled": false,
-        "service_domain": "switch",
-        "service": "turn_on",
-        "entityId": "switch.office_purifier",
-        "data": "",
-        "dataType": "jsonata",
-        "mergecontext": "",
-        "mustacheAltTags": false,
-        "outputProperties": [],
-        "queue": "none",
-        "x": 410,
-        "y": 80,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "87294073fbd65ed0",
-        "type": "inject",
-        "z": "7f2efefbbceb30df",
-        "name": "Everyday at 5PM",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "00 17 * * *",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payloadType": "date",
-        "x": 130,
-        "y": 140,
-        "wires": [
-            [
-                "a5198afa9bc940c5"
-            ]
-        ]
-    },
-    {
-        "id": "a5198afa9bc940c5",
-        "type": "api-call-service",
-        "z": "7f2efefbbceb30df",
-        "name": "Office purifier off",
-        "server": "d6ccf41005253901",
-        "version": 3,
-        "debugenabled": false,
-        "service_domain": "switch",
-        "service": "turn_off",
-        "entityId": "switch.office_purifier",
-        "data": "",
-        "dataType": "jsonata",
-        "mergecontext": "",
-        "mustacheAltTags": false,
-        "outputProperties": [],
-        "queue": "none",
-        "x": 410,
-        "y": 140,
-        "wires": [
             []
         ]
     },
@@ -483,7 +389,7 @@
         "server": "d6ccf41005253901",
         "version": 2,
         "outputs": 2,
-        "halt_if": "kube-6-pi4-office",
+        "halt_if": "k8s-6-pi4-office",
         "halt_if_type": "str",
         "halt_if_compare": "is",
         "entity_id": "sensor.vpogu_pixel_6_room_presence",
@@ -509,7 +415,7 @@
         "entity_location": "data",
         "override_data": "msg",
         "x": 500,
-        "y": 360,
+        "y": 100,
         "wires": [
             [
                 "6f1b779b483d1207"
@@ -537,7 +443,7 @@
         "repair": false,
         "outputs": 1,
         "x": 750,
-        "y": 320,
+        "y": 60,
         "wires": [
             [
                 "2a061426630480d5"
@@ -562,7 +468,7 @@
         "outputProperties": [],
         "queue": "none",
         "x": 740,
-        "y": 380,
+        "y": 120,
         "wires": [
             []
         ]
@@ -575,7 +481,7 @@
         "server": "d6ccf41005253901",
         "version": 2,
         "outputs": 2,
-        "halt_if": "kube-6-pi4-office",
+        "halt_if": "k8s-6-pi4-office",
         "halt_if_type": "str",
         "halt_if_compare": "is",
         "entity_id": "sensor.vpogu_pixel_6_room_presence",
@@ -601,7 +507,7 @@
         "entity_location": "data",
         "override_data": "msg",
         "x": 500,
-        "y": 540,
+        "y": 280,
         "wires": [
             [
                 "4d705941a497fec9"
@@ -629,7 +535,7 @@
         "repair": false,
         "outputs": 1,
         "x": 750,
-        "y": 500,
+        "y": 240,
         "wires": [
             [
                 "3e11ce62b36331cb"
@@ -670,7 +576,7 @@
         "entity_location": "data",
         "override_data": "msg",
         "x": 310,
-        "y": 360,
+        "y": 100,
         "wires": [
             [
                 "bd653483be73826e"
@@ -679,7 +585,7 @@
         ]
     },
     {
-        "id": "d24ba6467609b7c7",
+        "id": "2592e9fe7576d8f8",
         "type": "server-state-changed",
         "z": "7f2efefbbceb30df",
         "name": "Temp greater than 72",
@@ -734,16 +640,18 @@
             }
         ],
         "x": 120,
-        "y": 640,
+        "y": 380,
         "wires": [
             [
-                "8a598c989e060fb3"
+                "bb7cef295ed26e2b"
             ],
-            []
+            [
+                "f3c6421e7baad3f0"
+            ]
         ]
     },
     {
-        "id": "8a598c989e060fb3",
+        "id": "bb7cef295ed26e2b",
         "type": "api-call-service",
         "z": "7f2efefbbceb30df",
         "name": "Turn off thermostat",
@@ -759,10 +667,124 @@
         "mustacheAltTags": false,
         "outputProperties": [],
         "queue": "none",
-        "x": 380,
-        "y": 640,
+        "x": 350,
+        "y": 340,
         "wires": [
             []
+        ]
+    },
+    {
+        "id": "ec485280ae36d63a",
+        "type": "api-call-service",
+        "z": "7f2efefbbceb30df",
+        "name": "Turn heat on",
+        "server": "d6ccf41005253901",
+        "version": 3,
+        "debugenabled": true,
+        "service_domain": "climate",
+        "service": "set_hvac_mode",
+        "entityId": "climate.living_room",
+        "data": "{\"hvac_mode\":\"heat\"}",
+        "dataType": "jsonata",
+        "mergecontext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 710,
+        "y": 420,
+        "wires": [
+            [
+                "6e5a6e82fc613166"
+            ]
+        ]
+    },
+    {
+        "id": "6e5a6e82fc613166",
+        "type": "api-call-service",
+        "z": "7f2efefbbceb30df",
+        "name": "Set temp to 69",
+        "server": "d6ccf41005253901",
+        "version": 3,
+        "debugenabled": false,
+        "service_domain": "climate",
+        "service": "set_temperature",
+        "entityId": "climate.living_room",
+        "data": "{\"temperature\":\"69\"}",
+        "dataType": "jsonata",
+        "mergecontext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 900,
+        "y": 420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f3c6421e7baad3f0",
+        "type": "api-current-state",
+        "z": "7f2efefbbceb30df",
+        "name": "Weather",
+        "server": "d6ccf41005253901",
+        "version": 2,
+        "outputs": 1,
+        "halt_if": "",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "entity_id": "weather.home",
+        "state_type": "str",
+        "blockInputOverrides": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entity"
+            }
+        ],
+        "override_topic": false,
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "x": 320,
+        "y": 420,
+        "wires": [
+            [
+                "efd3e2c11e25a37a"
+            ]
+        ]
+    },
+    {
+        "id": "efd3e2c11e25a37a",
+        "type": "switch",
+        "z": "7f2efefbbceb30df",
+        "name": "Temp less than 50",
+        "property": "data.attributes.temperature",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "lt",
+                "v": "50",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 510,
+        "y": 420,
+        "wires": [
+            [
+                "ec485280ae36d63a"
+            ]
         ]
     },
     {
@@ -821,7 +843,7 @@
             }
         ],
         "x": 110,
-        "y": 400,
+        "y": 200,
         "wires": [
             [
                 "252a91796ae2681b"
@@ -865,7 +887,7 @@
         "entity_location": "data",
         "override_data": "msg",
         "x": 310,
-        "y": 360,
+        "y": 160,
         "wires": [
             [],
             [
@@ -907,7 +929,7 @@
         "entity_location": "data",
         "override_data": "msg",
         "x": 310,
-        "y": 440,
+        "y": 240,
         "wires": [
             [
                 "935c15097c78ee73"
@@ -933,7 +955,7 @@
         "outputProperties": [],
         "queue": "none",
         "x": 940,
-        "y": 340,
+        "y": 140,
         "wires": [
             []
         ]
@@ -972,7 +994,7 @@
         "entity_location": "data",
         "override_data": "msg",
         "x": 480,
-        "y": 440,
+        "y": 240,
         "wires": [
             [],
             [
@@ -997,8 +1019,8 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 680,
-        "y": 480,
+        "x": 660,
+        "y": 280,
         "wires": [
             [
                 "4d39cebd2b5c260a"
@@ -1023,7 +1045,7 @@
         "outputProperties": [],
         "queue": "none",
         "x": 1000,
-        "y": 440,
+        "y": 240,
         "wires": [
             []
         ]
@@ -1062,7 +1084,7 @@
         "entity_location": "data",
         "override_data": "msg",
         "x": 830,
-        "y": 480,
+        "y": 280,
         "wires": [
             [],
             [
@@ -1126,7 +1148,7 @@
             }
         ],
         "x": 140,
-        "y": 280,
+        "y": 80,
         "wires": [
             [
                 "74655bc51712ce86"
@@ -1152,7 +1174,7 @@
         "outputProperties": [],
         "queue": "none",
         "x": 760,
-        "y": 280,
+        "y": 80,
         "wires": [
             []
         ]
@@ -1191,63 +1213,12 @@
         "entity_location": "data",
         "override_data": "msg",
         "x": 580,
-        "y": 280,
+        "y": 80,
         "wires": [
             [],
             [
                 "290f78b313826470"
             ]
-        ]
-    },
-    {
-        "id": "420c5db18adc340c",
-        "type": "inject",
-        "z": "7f54fc151e2b8fe4",
-        "name": "Wed and Fri at 6:30AM",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "30 06 * * 3,5",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payloadType": "date",
-        "x": 150,
-        "y": 1400,
-        "wires": [
-            [
-                "10fed5dd6dcbb45f"
-            ]
-        ]
-    },
-    {
-        "id": "10fed5dd6dcbb45f",
-        "type": "api-call-service",
-        "z": "7f54fc151e2b8fe4",
-        "name": "Livingroom vacuum on",
-        "server": "d6ccf41005253901",
-        "version": 3,
-        "debugenabled": false,
-        "service_domain": "vacuum",
-        "service": "turn_on",
-        "entityId": "vacuum.robovac",
-        "data": "",
-        "dataType": "jsonata",
-        "mergecontext": "",
-        "mustacheAltTags": false,
-        "outputProperties": [],
-        "queue": "none",
-        "x": 400,
-        "y": 1400,
-        "wires": [
-            []
         ]
     },
     {
@@ -1284,7 +1255,7 @@
         "entity_location": "data",
         "override_data": "msg",
         "x": 540,
-        "y": 360,
+        "y": 160,
         "wires": [
             [
                 "cfdc77ac507786b2"
@@ -1326,7 +1297,7 @@
         "entity_location": "data",
         "override_data": "msg",
         "x": 760,
-        "y": 340,
+        "y": 140,
         "wires": [
             [],
             [
@@ -1352,7 +1323,7 @@
         "outputProperties": [],
         "queue": "none",
         "x": 460,
-        "y": 720,
+        "y": 460,
         "wires": [
             []
         ]
@@ -1375,7 +1346,7 @@
                 "value": ""
             }
         ],
-        "entityidfilter": "media_player.sony_bravia_tv_2",
+        "entityidfilter": "media_player.sony_bravia_tv",
         "entityidfiltertype": "exact",
         "outputinitially": false,
         "state_type": "str",
@@ -1413,14 +1384,14 @@
             }
         ],
         "x": 70,
-        "y": 680,
+        "y": 380,
         "wires": [
             [
-                "49f29e5f8751874f"
+                "49f29e5f8751874f",
+                "5f7b2048c889c140"
             ],
             [
-                "4b5f215aa128cb2a",
-                "fd82da5f46a3b529"
+                "4b5f215aa128cb2a"
             ]
         ]
     },
@@ -1436,7 +1407,7 @@
         "startOffset": 0,
         "endOffset": 0,
         "x": 270,
-        "y": 640,
+        "y": 380,
         "wires": [
             [
                 "bed19084e9ebb539"
@@ -1461,8 +1432,8 @@
         "mustacheAltTags": false,
         "outputProperties": [],
         "queue": "none",
-        "x": 460,
-        "y": 640,
+        "x": 480,
+        "y": 360,
         "wires": [
             []
         ]
@@ -1501,276 +1472,11 @@
         "entity_location": "data",
         "override_data": "msg",
         "x": 260,
-        "y": 720,
+        "y": 460,
         "wires": [
             [
                 "6fdf26baf073bd35"
             ],
-            []
-        ]
-    },
-    {
-        "id": "0a2a96d0c8e87a47",
-        "type": "inject",
-        "z": "7f54fc151e2b8fe4",
-        "name": "At 6:00PM",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "00 18 * * *",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payloadType": "date",
-        "x": 110,
-        "y": 920,
-        "wires": [
-            [
-                "a062d3d9377a4aca",
-                "f8da30b0a080f252"
-            ]
-        ]
-    },
-    {
-        "id": "a062d3d9377a4aca",
-        "type": "api-current-state",
-        "z": "7f54fc151e2b8fe4",
-        "name": "TV On?",
-        "server": "d6ccf41005253901",
-        "version": 2,
-        "outputs": 2,
-        "halt_if": "off",
-        "halt_if_type": "str",
-        "halt_if_compare": "is_not",
-        "entity_id": "media_player.sony_bravia_tv",
-        "state_type": "str",
-        "blockInputOverrides": false,
-        "outputProperties": [
-            {
-                "property": "payload",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "entityState"
-            },
-            {
-                "property": "data",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "entity"
-            }
-        ],
-        "override_topic": false,
-        "state_location": "payload",
-        "override_payload": "msg",
-        "entity_location": "data",
-        "override_data": "msg",
-        "x": 320,
-        "y": 980,
-        "wires": [
-            [
-                "bed19084e9ebb539"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "fd82da5f46a3b529",
-        "type": "api-current-state",
-        "z": "7f54fc151e2b8fe4",
-        "name": "Is occupied?",
-        "server": "d6ccf41005253901",
-        "version": 2,
-        "outputs": 2,
-        "halt_if": "on",
-        "halt_if_type": "str",
-        "halt_if_compare": "is",
-        "entity_id": "binary_sensor.livingroommotionsensor_occupancy",
-        "state_type": "str",
-        "blockInputOverrides": false,
-        "outputProperties": [
-            {
-                "property": "payload",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "entityState"
-            },
-            {
-                "property": "data",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "entity"
-            }
-        ],
-        "override_topic": false,
-        "state_location": "payload",
-        "override_payload": "msg",
-        "entity_location": "data",
-        "override_data": "msg",
-        "x": 270,
-        "y": 800,
-        "wires": [
-            [
-                "5f7b2048c889c140"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "5f7b2048c889c140",
-        "type": "api-call-service",
-        "z": "7f54fc151e2b8fe4",
-        "name": "Lights On",
-        "server": "d6ccf41005253901",
-        "version": 3,
-        "debugenabled": false,
-        "service_domain": "light",
-        "service": "turn_on",
-        "entityId": "light.living_room_dining_group",
-        "data": "",
-        "dataType": "jsonata",
-        "mergecontext": "",
-        "mustacheAltTags": false,
-        "outputProperties": [],
-        "queue": "none",
-        "x": 440,
-        "y": 800,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "d3b1f2afa995d3c5",
-        "type": "server-state-changed",
-        "z": "7f54fc151e2b8fe4",
-        "name": "Plex media paused?",
-        "server": "d6ccf41005253901",
-        "version": 3,
-        "exposeToHomeAssistant": false,
-        "haConfig": [
-            {
-                "property": "name",
-                "value": ""
-            },
-            {
-                "property": "icon",
-                "value": ""
-            }
-        ],
-        "entityidfilter": "media_player.plex_plex_for_android_tv_bravia_4k_gb_atv3",
-        "entityidfiltertype": "exact",
-        "outputinitially": false,
-        "state_type": "str",
-        "haltifstate": "paused",
-        "halt_if_type": "str",
-        "halt_if_compare": "is",
-        "outputs": 2,
-        "output_only_on_state_change": true,
-        "for": 0,
-        "forType": "num",
-        "forUnits": "minutes",
-        "ignorePrevStateNull": false,
-        "ignorePrevStateUnknown": false,
-        "ignorePrevStateUnavailable": false,
-        "ignoreCurrentStateUnknown": false,
-        "ignoreCurrentStateUnavailable": false,
-        "outputProperties": [
-            {
-                "property": "payload",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "entityState"
-            },
-            {
-                "property": "data",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "eventData"
-            },
-            {
-                "property": "topic",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "triggerId"
-            }
-        ],
-        "x": 110,
-        "y": 540,
-        "wires": [
-            [
-                "3f5469386bddb779"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "3f5469386bddb779",
-        "type": "api-current-state",
-        "z": "7f54fc151e2b8fe4",
-        "name": "Is occupied?",
-        "server": "d6ccf41005253901",
-        "version": 2,
-        "outputs": 2,
-        "halt_if": "on",
-        "halt_if_type": "str",
-        "halt_if_compare": "is",
-        "entity_id": "binary_sensor.livingroommotionsensor_occupancy",
-        "state_type": "str",
-        "blockInputOverrides": false,
-        "outputProperties": [
-            {
-                "property": "payload",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "entityState"
-            },
-            {
-                "property": "data",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "entity"
-            }
-        ],
-        "override_topic": false,
-        "state_location": "payload",
-        "override_payload": "msg",
-        "entity_location": "data",
-        "override_data": "msg",
-        "x": 330,
-        "y": 540,
-        "wires": [
-            [
-                "2f4add095caef194"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "2f4add095caef194",
-        "type": "api-call-service",
-        "z": "7f54fc151e2b8fe4",
-        "name": "Lights On",
-        "server": "d6ccf41005253901",
-        "version": 3,
-        "debugenabled": false,
-        "service_domain": "light",
-        "service": "turn_on",
-        "entityId": "light.living_room_dining_group",
-        "data": "",
-        "dataType": "jsonata",
-        "mergecontext": "",
-        "mustacheAltTags": false,
-        "outputProperties": [],
-        "queue": "none",
-        "x": 500,
-        "y": 540,
-        "wires": [
             []
         ]
     },
@@ -1808,7 +1514,7 @@
         "entity_location": "data",
         "override_data": "msg",
         "x": 390,
-        "y": 280,
+        "y": 80,
         "wires": [
             [
                 "0f9a76747d318afd"
@@ -1817,118 +1523,40 @@
         ]
     },
     {
-        "id": "6f70d5cce93a0197",
-        "type": "api-call-service",
+        "id": "6f6f86b37aa01674",
+        "type": "server-state-changed",
         "z": "7f54fc151e2b8fe4",
-        "name": "Turn off thermostat",
+        "name": "Temp less than 69",
         "server": "d6ccf41005253901",
         "version": 3,
-        "debugenabled": false,
-        "service_domain": "climate",
-        "service": "turn_off",
-        "entityId": "climate.living_room",
-        "data": "",
-        "dataType": "jsonata",
-        "mergecontext": "",
-        "mustacheAltTags": false,
-        "outputProperties": [],
-        "queue": "none",
-        "x": 590,
-        "y": 920,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "820a456979753cbc",
-        "type": "inject",
-        "z": "7f54fc151e2b8fe4",
-        "name": "At 4:00AM",
-        "props": [
+        "exposeToHomeAssistant": false,
+        "haConfig": [
             {
-                "p": "payload"
+                "property": "name",
+                "value": ""
             },
             {
-                "p": "topic",
-                "vt": "str"
+                "property": "icon",
+                "value": ""
             }
         ],
-        "repeat": "",
-        "crontab": "00 04 * * *",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payloadType": "date",
-        "x": 110,
-        "y": 1080,
-        "wires": [
-            [
-                "a92b134c25a29f5b"
-            ]
-        ]
-    },
-    {
-        "id": "589cd44360dc15ce",
-        "type": "api-call-service",
-        "z": "7f54fc151e2b8fe4",
-        "name": "Turn heat on",
-        "server": "d6ccf41005253901",
-        "version": 3,
-        "debugenabled": true,
-        "service_domain": "climate",
-        "service": "set_hvac_mode",
-        "entityId": "climate.living_room",
-        "data": "{\"hvac_mode\":\"heat\"}",
-        "dataType": "jsonata",
-        "mergecontext": "",
-        "mustacheAltTags": false,
-        "outputProperties": [],
-        "queue": "none",
-        "x": 690,
-        "y": 1080,
-        "wires": [
-            [
-                "291d18dd8609eb87"
-            ]
-        ]
-    },
-    {
-        "id": "291d18dd8609eb87",
-        "type": "api-call-service",
-        "z": "7f54fc151e2b8fe4",
-        "name": "Set temp to 69",
-        "server": "d6ccf41005253901",
-        "version": 3,
-        "debugenabled": false,
-        "service_domain": "climate",
-        "service": "set_temperature",
-        "entityId": "climate.living_room",
-        "data": "{\"temperature\":\"69\"}",
-        "dataType": "jsonata",
-        "mergecontext": "",
-        "mustacheAltTags": false,
-        "outputProperties": [],
-        "queue": "none",
-        "x": 880,
-        "y": 1080,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "f8da30b0a080f252",
-        "type": "api-current-state",
-        "z": "7f54fc151e2b8fe4",
-        "name": "Is thermostat on?",
-        "server": "d6ccf41005253901",
-        "version": 2,
+        "entityidfilter": "sensor.ble_temperature_living_room",
+        "entityidfiltertype": "exact",
+        "outputinitially": false,
+        "state_type": "str",
+        "haltifstate": "68",
+        "halt_if_type": "num",
+        "halt_if_compare": "lt",
         "outputs": 2,
-        "halt_if": "off",
-        "halt_if_type": "str",
-        "halt_if_compare": "is",
-        "entity_id": "climate.living_room",
-        "state_type": "str",
-        "blockInputOverrides": false,
+        "output_only_on_state_change": true,
+        "for": 0,
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": false,
+        "ignoreCurrentStateUnavailable": false,
         "outputProperties": [
             {
                 "property": "payload",
@@ -1940,362 +1568,91 @@
                 "property": "data",
                 "propertyType": "msg",
                 "value": "",
-                "valueType": "entity"
-            }
-        ],
-        "override_topic": false,
-        "state_location": "payload",
-        "override_payload": "msg",
-        "entity_location": "data",
-        "override_data": "msg",
-        "x": 350,
-        "y": 920,
-        "wires": [
-            [],
-            [
-                "6f70d5cce93a0197"
-            ]
-        ]
-    },
-    {
-        "id": "a92b134c25a29f5b",
-        "type": "api-current-state",
-        "z": "7f54fc151e2b8fe4",
-        "name": "Weather",
-        "server": "d6ccf41005253901",
-        "version": 2,
-        "outputs": 1,
-        "halt_if": "",
-        "halt_if_type": "str",
-        "halt_if_compare": "is",
-        "entity_id": "weather.home",
-        "state_type": "str",
-        "blockInputOverrides": false,
-        "outputProperties": [
+                "valueType": "eventData"
+            },
             {
-                "property": "payload",
+                "property": "topic",
                 "propertyType": "msg",
                 "value": "",
-                "valueType": "entityState"
-            },
-            {
-                "property": "data",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "entity"
+                "valueType": "triggerId"
             }
         ],
-        "override_topic": false,
-        "state_location": "payload",
-        "override_payload": "msg",
-        "entity_location": "data",
-        "override_data": "msg",
-        "x": 300,
-        "y": 1080,
-        "wires": [
-            [
-                "60198a7d59401c75"
-            ]
-        ]
-    },
-    {
-        "id": "60198a7d59401c75",
-        "type": "switch",
-        "z": "7f54fc151e2b8fe4",
-        "name": "Temp less than 50",
-        "property": "data.attributes.temperature",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "lt",
-                "v": "50",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 490,
-        "y": 1080,
-        "wires": [
-            [
-                "589cd44360dc15ce"
-            ]
-        ]
-    },
-    {
-        "id": "a8264d9f66abf79b",
-        "type": "api-call-service",
-        "z": "7f54fc151e2b8fe4",
-        "name": "Close curtain ",
-        "server": "d6ccf41005253901",
-        "version": 3,
-        "debugenabled": false,
-        "service_domain": "cover",
-        "service": "close_cover",
-        "entityId": "cover.curtain_living_room",
-        "data": "",
-        "dataType": "jsonata",
-        "mergecontext": "",
-        "mustacheAltTags": false,
-        "outputProperties": [],
-        "queue": "none",
-        "x": 310,
-        "y": 1220,
-        "wires": [
-            [
-                "35eced91530d0cd2"
-            ]
-        ]
-    },
-    {
-        "id": "0505dc8fbf1fe7b5",
-        "type": "inject",
-        "z": "7f54fc151e2b8fe4",
-        "name": "At 6:00AM",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "00 06 * * *",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payloadType": "date",
         "x": 110,
-        "y": 1160,
+        "y": 600,
         "wires": [
             [
-                "538b2c519802942f"
+                "d275e2d33986cb53"
+            ],
+            [
+                "0d538ce6562a20b0"
             ]
         ]
     },
     {
-        "id": "538b2c519802942f",
+        "id": "d275e2d33986cb53",
         "type": "api-call-service",
         "z": "7f54fc151e2b8fe4",
-        "name": "Open curtains",
-        "server": "d6ccf41005253901",
-        "version": 3,
-        "debugenabled": false,
-        "service_domain": "cover",
-        "service": "open_cover",
-        "entityId": "cover.curtain_living_room",
-        "data": "",
-        "dataType": "jsonata",
-        "mergecontext": "",
-        "mustacheAltTags": false,
-        "outputProperties": [],
-        "queue": "none",
-        "x": 320,
-        "y": 1160,
-        "wires": [
-            [
-                "30dea704513f0bcb"
-            ]
-        ]
-    },
-    {
-        "id": "30dea704513f0bcb",
-        "type": "delay",
-        "z": "7f54fc151e2b8fe4",
-        "name": "",
-        "pauseType": "delay",
-        "timeout": "10",
-        "timeoutUnits": "minutes",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": false,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 510,
-        "y": 1160,
-        "wires": [
-            [
-                "f836929c2aeb7ef7"
-            ]
-        ]
-    },
-    {
-        "id": "35eced91530d0cd2",
-        "type": "delay",
-        "z": "7f54fc151e2b8fe4",
-        "name": "",
-        "pauseType": "delay",
-        "timeout": "10",
-        "timeoutUnits": "minutes",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": false,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 510,
-        "y": 1220,
-        "wires": [
-            [
-                "13049ca71400f264"
-            ]
-        ]
-    },
-    {
-        "id": "f836929c2aeb7ef7",
-        "type": "api-call-service",
-        "z": "7f54fc151e2b8fe4",
-        "name": "Open curtains",
-        "server": "d6ccf41005253901",
-        "version": 3,
-        "debugenabled": false,
-        "service_domain": "cover",
-        "service": "open_cover",
-        "entityId": "cover.curtain_living_room",
-        "data": "",
-        "dataType": "jsonata",
-        "mergecontext": "",
-        "mustacheAltTags": false,
-        "outputProperties": [],
-        "queue": "none",
-        "x": 700,
-        "y": 1160,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "13049ca71400f264",
-        "type": "api-call-service",
-        "z": "7f54fc151e2b8fe4",
-        "name": "Close curtain ",
-        "server": "d6ccf41005253901",
-        "version": 3,
-        "debugenabled": false,
-        "service_domain": "cover",
-        "service": "close_cover",
-        "entityId": "cover.curtain_living_room",
-        "data": "",
-        "dataType": "jsonata",
-        "mergecontext": "",
-        "mustacheAltTags": false,
-        "outputProperties": [],
-        "queue": "none",
-        "x": 690,
-        "y": 1220,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "2872f0f94fdef042",
-        "type": "inject",
-        "z": "7f54fc151e2b8fe4",
-        "name": "At 4:00PM",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "00 16 * * *",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payloadType": "date",
-        "x": 110,
-        "y": 1460,
-        "wires": [
-            [
-                "8d92faef90e9edfe"
-            ]
-        ]
-    },
-    {
-        "id": "8d92faef90e9edfe",
-        "type": "api-call-service",
-        "z": "7f54fc151e2b8fe4",
-        "name": "Turn On Christmas lights",
+        "name": "Turn on heater",
         "server": "d6ccf41005253901",
         "version": 3,
         "debugenabled": false,
         "service_domain": "switch",
         "service": "turn_on",
-        "entityId": "switch.smart_plug_3_socket_1, switch.office_area",
+        "entityId": "switch.office_area",
         "data": "",
         "dataType": "jsonata",
         "mergecontext": "",
         "mustacheAltTags": false,
         "outputProperties": [],
         "queue": "none",
-        "x": 350,
-        "y": 1460,
+        "x": 340,
+        "y": 560,
         "wires": [
             []
         ]
     },
     {
-        "id": "97c794e8ef265a82",
-        "type": "inject",
-        "z": "7f54fc151e2b8fe4",
-        "name": "At 9:00PM",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "00 21 * * *",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payloadType": "date",
-        "x": 110,
-        "y": 1220,
-        "wires": [
-            [
-                "a8264d9f66abf79b",
-                "b76f2932853b2106"
-            ]
-        ]
-    },
-    {
-        "id": "b76f2932853b2106",
+        "id": "0d538ce6562a20b0",
         "type": "api-call-service",
         "z": "7f54fc151e2b8fe4",
-        "name": "Turn Off Christmas lights",
+        "name": "Turn off heater",
         "server": "d6ccf41005253901",
         "version": 3,
         "debugenabled": false,
         "service_domain": "switch",
         "service": "turn_off",
-        "entityId": "switch.smart_plug_3_socket_1, switch.office_area",
+        "entityId": "switch.office_area",
         "data": "",
         "dataType": "jsonata",
         "mergecontext": "",
         "mustacheAltTags": false,
         "outputProperties": [],
         "queue": "none",
-        "x": 350,
-        "y": 1280,
+        "x": 340,
+        "y": 640,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5f7b2048c889c140",
+        "type": "api-call-service",
+        "z": "7f54fc151e2b8fe4",
+        "name": "Lights On",
+        "server": "d6ccf41005253901",
+        "version": 3,
+        "debugenabled": false,
+        "service_domain": "light",
+        "service": "turn_on",
+        "entityId": "light.living_room_dining_group",
+        "data": "",
+        "dataType": "jsonata",
+        "mergecontext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 260,
+        "y": 320,
         "wires": [
             []
         ]
@@ -2373,7 +1730,7 @@
         "version": 3,
         "debugenabled": true,
         "service_domain": "notify",
-        "service": "mobile_app_sm_vpogu",
+        "service": "mobile_app_vpogu_pixel_6",
         "entityId": "",
         "data": "{\"message\":\"The garage door has been open for 15 minutes.\",\"title\":\"Your Garage Door Friend\"}",
         "dataType": "jsonata",
@@ -2549,295 +1906,156 @@
         ]
     },
     {
-        "id": "7701781879cc7322",
-        "type": "api-call-service",
-        "z": "04cb334222380c1b",
-        "name": "Bedroom purifier off",
+        "id": "c8b31705db243631",
+        "type": "trigger-state",
+        "z": "a0b0c69958ec912d",
+        "name": "Quinjet home",
         "server": "d6ccf41005253901",
-        "version": 3,
-        "debugenabled": false,
-        "service_domain": "switch",
-        "service": "turn_off",
-        "entityId": "switch.bedroom_purifier",
-        "data": "",
-        "dataType": "jsonata",
-        "mergecontext": "",
-        "mustacheAltTags": false,
-        "outputProperties": [],
-        "queue": "none",
-        "x": 420,
-        "y": 140,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "0ee3f00f1c17f62d",
-        "type": "api-call-service",
-        "z": "04cb334222380c1b",
-        "name": "Bedroom purifier on",
-        "server": "d6ccf41005253901",
-        "version": 3,
-        "debugenabled": false,
-        "service_domain": "switch",
-        "service": "turn_on",
-        "entityId": "switch.bedroom_purifier",
-        "data": "",
-        "dataType": "jsonata",
-        "mergecontext": "",
-        "mustacheAltTags": false,
-        "outputProperties": [],
-        "queue": "none",
-        "x": 420,
-        "y": 540,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "3faf6bb831247ae0",
-        "type": "inject",
-        "z": "04cb334222380c1b",
-        "name": "Everyday at 7AM",
-        "props": [
+        "version": 0,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
             {
-                "p": "payload"
+                "property": "name",
+                "value": ""
             },
             {
-                "p": "topic",
-                "vt": "str"
+                "property": "icon",
+                "value": ""
             }
         ],
-        "repeat": "",
-        "crontab": "00 07 * * *",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payloadType": "date",
-        "x": 130,
-        "y": 260,
-        "wires": [
-            [
-                "33eca4ec438ae7f7",
-                "b6ec9059b7c321f1",
-                "738b385f8a7a81e4",
-                "f0a37d5e488a4dbd",
-                "7701781879cc7322"
-            ]
-        ]
-    },
-    {
-        "id": "33eca4ec438ae7f7",
-        "type": "api-call-service",
-        "z": "04cb334222380c1b",
-        "name": "Open bedroom curtains",
-        "server": "d6ccf41005253901",
-        "version": 3,
+        "entityid": "device_tracker.tesla_location",
+        "entityidfiltertype": "exact",
         "debugenabled": false,
-        "service_domain": "cover",
-        "service": "open_cover",
-        "entityId": "cover.bedroom_curtain",
-        "data": "",
-        "dataType": "jsonata",
-        "mergecontext": "",
-        "mustacheAltTags": false,
-        "outputProperties": [],
-        "queue": "none",
-        "x": 430,
-        "y": 260,
-        "wires": [
-            [
-                "1cd889720b4e1302"
-            ]
-        ]
-    },
-    {
-        "id": "7f28b508a8769d91",
-        "type": "inject",
-        "z": "04cb334222380c1b",
-        "name": "Everyday at 6PM",
-        "props": [
+        "constraints": [
             {
-                "p": "payload"
+                "targetType": "this_entity",
+                "targetValue": "",
+                "propertyType": "previous_state",
+                "comparatorType": "is",
+                "comparatorValueDatatype": "str",
+                "comparatorValue": "not_home",
+                "propertyValue": "old_state.state"
             },
             {
-                "p": "topic",
-                "vt": "str"
+                "targetType": "this_entity",
+                "targetValue": "",
+                "propertyType": "current_state",
+                "comparatorType": "is",
+                "comparatorValueDatatype": "str",
+                "comparatorValue": "home",
+                "propertyValue": "new_state.state"
             }
         ],
-        "repeat": "",
-        "crontab": "00 18 * * *",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payloadType": "date",
-        "x": 130,
-        "y": 360,
-        "wires": [
-            [
-                "7739215a632099af",
-                "92424bae377c4e5e",
-                "f0a37d5e488a4dbd",
-                "0ee3f00f1c17f62d"
-            ]
-        ]
-    },
-    {
-        "id": "7739215a632099af",
-        "type": "api-call-service",
-        "z": "04cb334222380c1b",
-        "name": "Close bedroom curtains",
-        "server": "d6ccf41005253901",
-        "version": 3,
-        "debugenabled": false,
-        "service_domain": "cover",
-        "service": "close_cover",
-        "entityId": "cover.bedroom_curtain",
-        "data": "",
-        "dataType": "jsonata",
-        "mergecontext": "",
-        "mustacheAltTags": false,
-        "outputProperties": [],
-        "queue": "none",
-        "x": 430,
-        "y": 480,
-        "wires": [
-            [
-                "49fd998a67066f61"
-            ]
-        ]
-    },
-    {
-        "id": "b6ec9059b7c321f1",
-        "type": "api-call-service",
-        "z": "04cb334222380c1b",
-        "name": "Turn off Led strip",
-        "server": "d6ccf41005253901",
-        "version": 3,
-        "debugenabled": false,
-        "service_domain": "switch",
-        "service": "turn_off",
-        "entityId": "switch.smart_power_strip_1",
-        "data": "",
-        "dataType": "jsonata",
-        "mergecontext": "",
-        "mustacheAltTags": false,
-        "outputProperties": [],
-        "queue": "none",
-        "x": 410,
-        "y": 200,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "92424bae377c4e5e",
-        "type": "api-call-service",
-        "z": "04cb334222380c1b",
-        "name": "Close bedroom blinds",
-        "server": "d6ccf41005253901",
-        "version": 3,
-        "debugenabled": false,
-        "service_domain": "cover",
-        "service": "close_cover",
-        "entityId": "cover.bedroom_blinds",
-        "data": "",
-        "dataType": "jsonata",
-        "mergecontext": "",
-        "mustacheAltTags": false,
-        "outputProperties": [],
-        "queue": "none",
-        "x": 420,
-        "y": 420,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "738b385f8a7a81e4",
-        "type": "api-call-service",
-        "z": "04cb334222380c1b",
-        "name": "Open bedroom blinds",
-        "server": "d6ccf41005253901",
-        "version": 3,
-        "debugenabled": false,
-        "service_domain": "cover",
-        "service": "open_cover",
-        "entityId": "cover.bedroom_blinds",
-        "data": "",
-        "dataType": "jsonata",
-        "mergecontext": "",
-        "mustacheAltTags": false,
-        "outputProperties": [],
-        "queue": "none",
-        "x": 420,
-        "y": 320,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "2079e8b03d274437",
-        "type": "api-call-service",
-        "z": "04cb334222380c1b",
-        "name": "Notify",
-        "server": "d6ccf41005253901",
-        "version": 3,
-        "debugenabled": false,
-        "service_domain": "notify",
-        "service": "mobile_app_sm_vpogu",
-        "entityId": "",
-        "data": "",
-        "dataType": "jsonata",
-        "mergecontext": "",
-        "mustacheAltTags": false,
-        "outputProperties": [],
-        "queue": "none",
-        "x": 710,
-        "y": 580,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "f0a37d5e488a4dbd",
-        "type": "api-current-state",
-        "z": "04cb334222380c1b",
-        "name": "Blinds battery less than 10%",
-        "server": "d6ccf41005253901",
-        "version": 2,
         "outputs": 2,
-        "halt_if": "10",
-        "halt_if_type": "num",
-        "halt_if_compare": "lte",
-        "entity_id": "sensor.bedroom_blinds_battery_level",
+        "customoutputs": [],
+        "outputinitially": false,
         "state_type": "str",
-        "blockInputOverrides": false,
-        "outputProperties": [
-            {
-                "property": "payload",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "entityState"
-            },
-            {
-                "property": "data",
-                "propertyType": "msg",
-                "value": "",
-                "valueType": "entity"
-            }
-        ],
-        "override_topic": false,
-        "state_location": "payload",
-        "override_payload": "msg",
-        "entity_location": "data",
-        "override_data": "msg",
-        "x": 440,
-        "y": 600,
+        "x": 160,
+        "y": 440,
         "wires": [
             [
-                "2079e8b03d274437"
+                "bd06002af8347cf3"
             ],
+            []
+        ]
+    },
+    {
+        "id": "bd06002af8347cf3",
+        "type": "api-call-service",
+        "z": "a0b0c69958ec912d",
+        "name": "Open garage door",
+        "server": "d6ccf41005253901",
+        "version": 3,
+        "debugenabled": false,
+        "service_domain": "cover",
+        "service": "open_cover",
+        "entityId": "cover.garage_door",
+        "data": "",
+        "dataType": "jsonata",
+        "mergecontext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 390,
+        "y": 440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1478dab7415f1d24",
+        "type": "trigger-state",
+        "z": "a0b0c69958ec912d",
+        "name": "Quinjet not home",
+        "server": "d6ccf41005253901",
+        "version": 0,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
+        "entityid": "device_tracker.tesla_location",
+        "entityidfiltertype": "exact",
+        "debugenabled": false,
+        "constraints": [
+            {
+                "targetType": "this_entity",
+                "targetValue": "",
+                "propertyType": "previous_state",
+                "comparatorType": "is",
+                "comparatorValueDatatype": "str",
+                "comparatorValue": "home",
+                "propertyValue": "old_state.state"
+            },
+            {
+                "targetType": "this_entity",
+                "targetValue": "",
+                "propertyType": "current_state",
+                "comparatorType": "is",
+                "comparatorValueDatatype": "str",
+                "comparatorValue": "not_home",
+                "propertyValue": "new_state.state"
+            }
+        ],
+        "outputs": 2,
+        "customoutputs": [],
+        "outputinitially": false,
+        "state_type": "str",
+        "x": 170,
+        "y": 520,
+        "wires": [
+            [
+                "870a627d415c9fe0"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "870a627d415c9fe0",
+        "type": "api-call-service",
+        "z": "a0b0c69958ec912d",
+        "name": "close garage door",
+        "server": "d6ccf41005253901",
+        "version": 3,
+        "debugenabled": false,
+        "service_domain": "cover",
+        "service": "close_cover",
+        "entityId": "cover.garage_door",
+        "data": "",
+        "dataType": "jsonata",
+        "mergecontext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 390,
+        "y": 520,
+        "wires": [
             []
         ]
     },
@@ -2896,13 +2114,15 @@
                 "valueType": "triggerId"
             }
         ],
-        "x": 140,
-        "y": 700,
+        "x": 120,
+        "y": 160,
         "wires": [
             [
                 "a6f1936fb8542b39"
             ],
-            []
+            [
+                "65167bd1ee043b5b"
+            ]
         ]
     },
     {
@@ -2922,105 +2142,123 @@
         "mustacheAltTags": false,
         "outputProperties": [],
         "queue": "none",
-        "x": 410,
-        "y": 700,
+        "x": 350,
+        "y": 120,
         "wires": [
             []
         ]
     },
     {
-        "id": "c5302b115d8f09a5",
+        "id": "1bd1d641a5ae5252",
         "type": "api-call-service",
         "z": "04cb334222380c1b",
-        "name": "Close bedroom curtains",
+        "name": "Turn heat on",
         "server": "d6ccf41005253901",
         "version": 3,
-        "debugenabled": false,
-        "service_domain": "cover",
-        "service": "close_cover",
-        "entityId": "cover.bedroom_curtain",
-        "data": "",
+        "debugenabled": true,
+        "service_domain": "climate",
+        "service": "set_hvac_mode",
+        "entityId": "climate.living_room",
+        "data": "{\"hvac_mode\":\"heat\"}",
         "dataType": "jsonata",
         "mergecontext": "",
         "mustacheAltTags": false,
         "outputProperties": [],
         "queue": "none",
-        "x": 870,
-        "y": 480,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "02fe7b2c857a5fed",
-        "type": "api-call-service",
-        "z": "04cb334222380c1b",
-        "name": "Open bedroom curtains",
-        "server": "d6ccf41005253901",
-        "version": 3,
-        "debugenabled": false,
-        "service_domain": "cover",
-        "service": "open_cover",
-        "entityId": "cover.bedroom_curtain",
-        "data": "",
-        "dataType": "jsonata",
-        "mergecontext": "",
-        "mustacheAltTags": false,
-        "outputProperties": [],
-        "queue": "none",
-        "x": 850,
-        "y": 260,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "1cd889720b4e1302",
-        "type": "delay",
-        "z": "04cb334222380c1b",
-        "name": "",
-        "pauseType": "delay",
-        "timeout": "10",
-        "timeoutUnits": "minutes",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": false,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 640,
-        "y": 260,
+        "x": 710,
+        "y": 200,
         "wires": [
             [
-                "02fe7b2c857a5fed"
+                "e0d64240cbb95183"
             ]
         ]
     },
     {
-        "id": "49fd998a67066f61",
-        "type": "delay",
+        "id": "e0d64240cbb95183",
+        "type": "api-call-service",
         "z": "04cb334222380c1b",
-        "name": "",
-        "pauseType": "delay",
-        "timeout": "10",
-        "timeoutUnits": "minutes",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": false,
-        "allowrate": false,
+        "name": "Set temp to 69",
+        "server": "d6ccf41005253901",
+        "version": 3,
+        "debugenabled": false,
+        "service_domain": "climate",
+        "service": "set_temperature",
+        "entityId": "climate.living_room",
+        "data": "{\"temperature\":\"69\"}",
+        "dataType": "jsonata",
+        "mergecontext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 900,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "65167bd1ee043b5b",
+        "type": "api-current-state",
+        "z": "04cb334222380c1b",
+        "name": "Weather",
+        "server": "d6ccf41005253901",
+        "version": 2,
         "outputs": 1,
-        "x": 650,
-        "y": 480,
+        "halt_if": "",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "entity_id": "weather.home",
+        "state_type": "str",
+        "blockInputOverrides": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entity"
+            }
+        ],
+        "override_topic": false,
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "x": 320,
+        "y": 200,
         "wires": [
             [
-                "c5302b115d8f09a5"
+                "36964f3e79d8f9b0"
+            ]
+        ]
+    },
+    {
+        "id": "36964f3e79d8f9b0",
+        "type": "switch",
+        "z": "04cb334222380c1b",
+        "name": "Temp less than 50",
+        "property": "data.attributes.temperature",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "lt",
+                "v": "50",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 510,
+        "y": 200,
+        "wires": [
+            [
+                "1bd1d641a5ae5252"
             ]
         ]
     },
@@ -3413,6 +2651,1108 @@
             [
                 "9dade59e99620c4d"
             ],
+            []
+        ]
+    },
+    {
+        "id": "10be19cfbc428751",
+        "type": "inject",
+        "z": "774d9f8888f0a1fd",
+        "name": "Everyday at 7AM",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "00 07 * * 1,2,3,4,5",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 300,
+        "wires": [
+            [
+                "d38157b79186dae5"
+            ]
+        ]
+    },
+    {
+        "id": "a3e3c13a572af51e",
+        "type": "api-call-service",
+        "z": "774d9f8888f0a1fd",
+        "name": "Office purifier on",
+        "server": "d6ccf41005253901",
+        "version": 3,
+        "debugenabled": false,
+        "service_domain": "switch",
+        "service": "turn_on",
+        "entityId": "switch.office_purifier",
+        "data": "",
+        "dataType": "jsonata",
+        "mergecontext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 590,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e4f7cbee19046f8d",
+        "type": "inject",
+        "z": "774d9f8888f0a1fd",
+        "name": "Everyday at 5PM",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "00 17 * * 1,2,3,4,5",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 500,
+        "wires": [
+            [
+                "a665687dd30e29f0",
+                "152e4339dc57d319"
+            ]
+        ]
+    },
+    {
+        "id": "2f11f564708ba5ff",
+        "type": "api-call-service",
+        "z": "774d9f8888f0a1fd",
+        "name": "Office purifier off",
+        "server": "d6ccf41005253901",
+        "version": 3,
+        "debugenabled": false,
+        "service_domain": "switch",
+        "service": "turn_off",
+        "entityId": "switch.office_purifier",
+        "data": "",
+        "dataType": "jsonata",
+        "mergecontext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 580,
+        "y": 500,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a665687dd30e29f0",
+        "type": "api-current-state",
+        "z": "774d9f8888f0a1fd",
+        "name": "On vacation?",
+        "server": "d6ccf41005253901",
+        "version": 2,
+        "outputs": 2,
+        "halt_if": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "entity_id": "input_boolean.on_vacation",
+        "state_type": "str",
+        "blockInputOverrides": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entity"
+            }
+        ],
+        "override_topic": false,
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "x": 350,
+        "y": 500,
+        "wires": [
+            [],
+            [
+                "2f11f564708ba5ff"
+            ]
+        ]
+    },
+    {
+        "id": "d38157b79186dae5",
+        "type": "api-current-state",
+        "z": "774d9f8888f0a1fd",
+        "name": "On vacation?",
+        "server": "d6ccf41005253901",
+        "version": 2,
+        "outputs": 2,
+        "halt_if": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "entity_id": "input_boolean.on_vacation",
+        "state_type": "str",
+        "blockInputOverrides": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entity"
+            }
+        ],
+        "override_topic": false,
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "x": 350,
+        "y": 300,
+        "wires": [
+            [],
+            [
+                "a3e3c13a572af51e",
+                "e41aa1c9bfea5b23",
+                "415ea913941c048d"
+            ]
+        ]
+    },
+    {
+        "id": "152e4339dc57d319",
+        "type": "api-call-service",
+        "z": "774d9f8888f0a1fd",
+        "name": "Close living room curtain ",
+        "server": "d6ccf41005253901",
+        "version": 3,
+        "debugenabled": false,
+        "service_domain": "cover",
+        "service": "close_cover",
+        "entityId": "cover.curtain_living_room",
+        "data": "",
+        "dataType": "jsonata",
+        "mergecontext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 390,
+        "y": 560,
+        "wires": [
+            [
+                "329c6d62aa5392e9"
+            ]
+        ]
+    },
+    {
+        "id": "329c6d62aa5392e9",
+        "type": "delay",
+        "z": "774d9f8888f0a1fd",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "10",
+        "timeoutUnits": "minutes",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 630,
+        "y": 560,
+        "wires": [
+            [
+                "6cbcb840c0be08c1"
+            ]
+        ]
+    },
+    {
+        "id": "6cbcb840c0be08c1",
+        "type": "api-call-service",
+        "z": "774d9f8888f0a1fd",
+        "name": "Close living room curtain  ",
+        "server": "d6ccf41005253901",
+        "version": 3,
+        "debugenabled": false,
+        "service_domain": "cover",
+        "service": "close_cover",
+        "entityId": "cover.curtain_living_room",
+        "data": "",
+        "dataType": "jsonata",
+        "mergecontext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 870,
+        "y": 560,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0c75ca1c0f1f23a4",
+        "type": "inject",
+        "z": "774d9f8888f0a1fd",
+        "name": "Everyday at 6AM",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "00 06 * * *",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 140,
+        "wires": [
+            [
+                "65fec3523d454636"
+            ]
+        ]
+    },
+    {
+        "id": "65fec3523d454636",
+        "type": "api-call-service",
+        "z": "774d9f8888f0a1fd",
+        "name": "Open curtains",
+        "server": "d6ccf41005253901",
+        "version": 3,
+        "debugenabled": false,
+        "service_domain": "cover",
+        "service": "open_cover",
+        "entityId": "cover.curtain_living_room",
+        "data": "",
+        "dataType": "jsonata",
+        "mergecontext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 360,
+        "y": 140,
+        "wires": [
+            [
+                "ba32c32434d9f5ad"
+            ]
+        ]
+    },
+    {
+        "id": "ba32c32434d9f5ad",
+        "type": "delay",
+        "z": "774d9f8888f0a1fd",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "10",
+        "timeoutUnits": "minutes",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 550,
+        "y": 140,
+        "wires": [
+            [
+                "fcfa62759d7e4306"
+            ]
+        ]
+    },
+    {
+        "id": "fcfa62759d7e4306",
+        "type": "api-call-service",
+        "z": "774d9f8888f0a1fd",
+        "name": "Open curtains",
+        "server": "d6ccf41005253901",
+        "version": 3,
+        "debugenabled": false,
+        "service_domain": "cover",
+        "service": "open_cover",
+        "entityId": "cover.curtain_living_room",
+        "data": "",
+        "dataType": "jsonata",
+        "mergecontext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 740,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "701083c51e20001b",
+        "type": "inject",
+        "z": "774d9f8888f0a1fd",
+        "name": "Everyday at 4AM",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "00 04 * * *",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 80,
+        "wires": [
+            [
+                "6f308726fe75825d",
+                "bb8d7bd7e79c0114"
+            ]
+        ]
+    },
+    {
+        "id": "6adbc6a1e13b2304",
+        "type": "api-call-service",
+        "z": "774d9f8888f0a1fd",
+        "name": "Turn heat on",
+        "server": "d6ccf41005253901",
+        "version": 3,
+        "debugenabled": true,
+        "service_domain": "climate",
+        "service": "set_hvac_mode",
+        "entityId": "climate.living_room",
+        "data": "{\"hvac_mode\":\"heat\"}",
+        "dataType": "jsonata",
+        "mergecontext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 710,
+        "y": 80,
+        "wires": [
+            [
+                "2ce873457a857ecc"
+            ]
+        ]
+    },
+    {
+        "id": "2ce873457a857ecc",
+        "type": "api-call-service",
+        "z": "774d9f8888f0a1fd",
+        "name": "Set temp to 69",
+        "server": "d6ccf41005253901",
+        "version": 3,
+        "debugenabled": false,
+        "service_domain": "climate",
+        "service": "set_temperature",
+        "entityId": "climate.living_room",
+        "data": "{\"temperature\":\"69\"}",
+        "dataType": "jsonata",
+        "mergecontext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 900,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6f308726fe75825d",
+        "type": "api-current-state",
+        "z": "774d9f8888f0a1fd",
+        "name": "Weather",
+        "server": "d6ccf41005253901",
+        "version": 2,
+        "outputs": 1,
+        "halt_if": "",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "entity_id": "weather.home",
+        "state_type": "str",
+        "blockInputOverrides": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entity"
+            }
+        ],
+        "override_topic": false,
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "x": 340,
+        "y": 80,
+        "wires": [
+            [
+                "4852648478c5abb2"
+            ]
+        ]
+    },
+    {
+        "id": "4852648478c5abb2",
+        "type": "switch",
+        "z": "774d9f8888f0a1fd",
+        "name": "Temp less than 50",
+        "property": "data.attributes.temperature",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "lt",
+                "v": "50",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 530,
+        "y": 80,
+        "wires": [
+            [
+                "6adbc6a1e13b2304"
+            ]
+        ]
+    },
+    {
+        "id": "bb8d7bd7e79c0114",
+        "type": "api-call-service",
+        "z": "774d9f8888f0a1fd",
+        "name": "Turn on circadian lighting",
+        "server": "d6ccf41005253901",
+        "version": 3,
+        "debugenabled": false,
+        "service_domain": "switch",
+        "service": "turn_on",
+        "entityId": "switch.circadian_lighting_circadian_lighting_living_room, switch.circadian_lighting_circadian_lighting_kitchen",
+        "data": "",
+        "dataType": "jsonata",
+        "mergecontext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 390,
+        "y": 20,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "57e74c644249304b",
+        "type": "inject",
+        "z": "774d9f8888f0a1fd",
+        "name": "Everyday at 6PM",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "00 18 * * *",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 660,
+        "wires": [
+            [
+                "7dbe1074a28359cd",
+                "898fbe12d36d1d27",
+                "d0e5bae1fc1b467d"
+            ]
+        ]
+    },
+    {
+        "id": "7dbe1074a28359cd",
+        "type": "api-current-state",
+        "z": "774d9f8888f0a1fd",
+        "name": "TV On?",
+        "server": "d6ccf41005253901",
+        "version": 2,
+        "outputs": 2,
+        "halt_if": "off",
+        "halt_if_type": "str",
+        "halt_if_compare": "is_not",
+        "entity_id": "media_player.sony_bravia_tv",
+        "state_type": "str",
+        "blockInputOverrides": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entity"
+            }
+        ],
+        "override_topic": false,
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "x": 340,
+        "y": 680,
+        "wires": [
+            [
+                "a237ccee8def548f"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "6974d4ac5b2a6052",
+        "type": "api-call-service",
+        "z": "774d9f8888f0a1fd",
+        "name": "Turn off thermostat",
+        "server": "d6ccf41005253901",
+        "version": 3,
+        "debugenabled": false,
+        "service_domain": "climate",
+        "service": "turn_off",
+        "entityId": "climate.living_room",
+        "data": "",
+        "dataType": "jsonata",
+        "mergecontext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 590,
+        "y": 620,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "898fbe12d36d1d27",
+        "type": "api-current-state",
+        "z": "774d9f8888f0a1fd",
+        "name": "Is thermostat on?",
+        "server": "d6ccf41005253901",
+        "version": 2,
+        "outputs": 2,
+        "halt_if": "off",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "entity_id": "climate.living_room",
+        "state_type": "str",
+        "blockInputOverrides": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entity"
+            }
+        ],
+        "override_topic": false,
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "x": 370,
+        "y": 620,
+        "wires": [
+            [],
+            [
+                "6974d4ac5b2a6052",
+                "6974d4ac5b2a6052"
+            ]
+        ]
+    },
+    {
+        "id": "a237ccee8def548f",
+        "type": "api-call-service",
+        "z": "774d9f8888f0a1fd",
+        "name": "Led Lights On",
+        "server": "d6ccf41005253901",
+        "version": 3,
+        "debugenabled": false,
+        "service_domain": "light",
+        "service": "turn_on",
+        "entityId": "light.tv_h6199",
+        "data": "",
+        "dataType": "jsonata",
+        "mergecontext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 540,
+        "y": 680,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "82a9ee7667b95059",
+        "type": "inject",
+        "z": "774d9f8888f0a1fd",
+        "name": "Wed, Fri at 6:30AM",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "30 06 * * 3,5",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "date",
+        "x": 140,
+        "y": 200,
+        "wires": [
+            [
+                "59b0e55856101e46"
+            ]
+        ]
+    },
+    {
+        "id": "59b0e55856101e46",
+        "type": "api-call-service",
+        "z": "774d9f8888f0a1fd",
+        "name": "Livingroom vacuum on",
+        "server": "d6ccf41005253901",
+        "version": 3,
+        "debugenabled": false,
+        "service_domain": "vacuum",
+        "service": "turn_on",
+        "entityId": "vacuum.robovac",
+        "data": "",
+        "dataType": "jsonata",
+        "mergecontext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 400,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "415ea913941c048d",
+        "type": "api-call-service",
+        "z": "774d9f8888f0a1fd",
+        "name": "Bedroom purifier off",
+        "server": "d6ccf41005253901",
+        "version": 3,
+        "debugenabled": false,
+        "service_domain": "switch",
+        "service": "turn_off",
+        "entityId": "switch.bedroom_purifier",
+        "data": "",
+        "dataType": "jsonata",
+        "mergecontext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 600,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e41aa1c9bfea5b23",
+        "type": "api-call-service",
+        "z": "774d9f8888f0a1fd",
+        "name": "Open bedroom curtains and blinds",
+        "server": "d6ccf41005253901",
+        "version": 3,
+        "debugenabled": false,
+        "service_domain": "cover",
+        "service": "open_cover",
+        "entityId": "cover.bedroom_blinds, cover.bedroom_curtain_4",
+        "data": "",
+        "dataType": "jsonata",
+        "mergecontext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 640,
+        "y": 300,
+        "wires": [
+            [
+                "8109396eeb98d5df"
+            ]
+        ]
+    },
+    {
+        "id": "fd500e47d3758743",
+        "type": "api-call-service",
+        "z": "774d9f8888f0a1fd",
+        "name": "Open bedroom curtains",
+        "server": "d6ccf41005253901",
+        "version": 3,
+        "debugenabled": false,
+        "service_domain": "cover",
+        "service": "open_cover",
+        "entityId": "cover.bedroom_curtain_4",
+        "data": "",
+        "dataType": "jsonata",
+        "mergecontext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 1110,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8109396eeb98d5df",
+        "type": "delay",
+        "z": "774d9f8888f0a1fd",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "10",
+        "timeoutUnits": "minutes",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 890,
+        "y": 300,
+        "wires": [
+            [
+                "fd500e47d3758743"
+            ]
+        ]
+    },
+    {
+        "id": "d0e5bae1fc1b467d",
+        "type": "api-current-state",
+        "z": "774d9f8888f0a1fd",
+        "name": "On vacation?",
+        "server": "d6ccf41005253901",
+        "version": 2,
+        "outputs": 2,
+        "halt_if": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "entity_id": "input_boolean.on_vacation",
+        "state_type": "str",
+        "blockInputOverrides": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entity"
+            }
+        ],
+        "override_topic": false,
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "x": 350,
+        "y": 800,
+        "wires": [
+            [],
+            [
+                "e4ff6020183cf857",
+                "d3261716e51998a8",
+                "b8bdd117c2918021"
+            ]
+        ]
+    },
+    {
+        "id": "e4ff6020183cf857",
+        "type": "api-call-service",
+        "z": "774d9f8888f0a1fd",
+        "name": "Bedroom purifier on",
+        "server": "d6ccf41005253901",
+        "version": 3,
+        "debugenabled": false,
+        "service_domain": "switch",
+        "service": "turn_on",
+        "entityId": "switch.bedroom_purifier",
+        "data": "",
+        "dataType": "jsonata",
+        "mergecontext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 560,
+        "y": 740,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d3261716e51998a8",
+        "type": "api-call-service",
+        "z": "774d9f8888f0a1fd",
+        "name": "Close bedroom curtains and blinds",
+        "server": "d6ccf41005253901",
+        "version": 3,
+        "debugenabled": false,
+        "service_domain": "cover",
+        "service": "close_cover",
+        "entityId": "cover.bedroom_blinds, cover.bedroom_curtain_4",
+        "data": "",
+        "dataType": "jsonata",
+        "mergecontext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 600,
+        "y": 800,
+        "wires": [
+            [
+                "33fc4442c0187ee9",
+                "33fc4442c0187ee9"
+            ]
+        ]
+    },
+    {
+        "id": "a872c610d835c2fa",
+        "type": "api-call-service",
+        "z": "774d9f8888f0a1fd",
+        "name": "Notify",
+        "server": "d6ccf41005253901",
+        "version": 3,
+        "debugenabled": false,
+        "service_domain": "notify",
+        "service": "mobile_app_sm_vpogu",
+        "entityId": "",
+        "data": "",
+        "dataType": "jsonata",
+        "mergecontext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 830,
+        "y": 860,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b8bdd117c2918021",
+        "type": "api-current-state",
+        "z": "774d9f8888f0a1fd",
+        "name": "Blinds battery less than 10%",
+        "server": "d6ccf41005253901",
+        "version": 2,
+        "outputs": 2,
+        "halt_if": "10",
+        "halt_if_type": "num",
+        "halt_if_compare": "lte",
+        "entity_id": "sensor.bedroom_blinds_battery_level",
+        "state_type": "str",
+        "blockInputOverrides": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entity"
+            }
+        ],
+        "override_topic": false,
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "x": 580,
+        "y": 860,
+        "wires": [
+            [
+                "a872c610d835c2fa",
+                "a872c610d835c2fa"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "6537ffe68e4a3549",
+        "type": "api-call-service",
+        "z": "774d9f8888f0a1fd",
+        "name": "Close bedroom curtains",
+        "server": "d6ccf41005253901",
+        "version": 3,
+        "debugenabled": false,
+        "service_domain": "cover",
+        "service": "close_cover",
+        "entityId": "cover.bedroom_curtain_4",
+        "data": "",
+        "dataType": "jsonata",
+        "mergecontext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 1050,
+        "y": 800,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "33fc4442c0187ee9",
+        "type": "delay",
+        "z": "774d9f8888f0a1fd",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "10",
+        "timeoutUnits": "minutes",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 850,
+        "y": 800,
+        "wires": [
+            [
+                "6537ffe68e4a3549",
+                "6537ffe68e4a3549"
+            ]
+        ]
+    },
+    {
+        "id": "3325327b982fcd59",
+        "type": "inject",
+        "z": "774d9f8888f0a1fd",
+        "name": "Everyday at 8PM",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "00 20 * * *",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 960,
+        "wires": [
+            [
+                "c46b3711d182c9fd"
+            ]
+        ]
+    },
+    {
+        "id": "c46b3711d182c9fd",
+        "type": "api-call-service",
+        "z": "774d9f8888f0a1fd",
+        "name": "Turn off circadian lighting",
+        "server": "d6ccf41005253901",
+        "version": 3,
+        "debugenabled": false,
+        "service_domain": "switch",
+        "service": "turn_off",
+        "entityId": "switch.circadian_lighting_circadian_lighting_living_room, switch.circadian_lighting_circadian_lighting_kitchen",
+        "data": "",
+        "dataType": "jsonata",
+        "mergecontext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 390,
+        "y": 960,
+        "wires": [
             []
         ]
     }
